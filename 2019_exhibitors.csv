@@ -1,0 +1,218 @@
+saleNumber,fullName,tag,species,animalDescription,checkInWeight,clubName,showClassName,placing,buyback
+1,Tya Pinnt,TP8,Rabbit,,4.1,,,Grand,10
+2,Paige LoBach,L2,Rabbit,,6.4,,,Reserve,10
+3,Lauren King,,Poultry,,22.6,,,Grand ,16.95
+4,Brielle Sorensen,,Poultry,,22.5,,,Reserve,16.875
+5,Cora Miller,,Poultry,,17.74,,,1st,13.305
+6,Lexi Hill,18,Market Steer,,1204,,,Grand,1312.36
+7,Emma Constable,13,Market Steer,,1282,,,Reserve,1397.38
+8,Kooper Jenkins,10,Market Steer,,1124,,,1st,1225.16
+9,Kayden Bradshaw,47,Market Steer,,1231,,,1st,1341.79
+10,Jenna Moores,22,Market Steer,,1363,,,1st,1485.67
+11,Echo Bartels,42,Market Steer,,1379,,,1st,1503.11
+12,Sydney Camp,65,Market Steer,,1631,,,1st,1777.79
+13,Owen Bangert,707,Hog,,258,,,Grand,154.8
+14,Coby Hudson,712,Hog,,270,,,Reserve,162
+15,Joslyn Hampton,770,Hog,,240,,,1st,144
+16,Lottie Jo Varner,636,Hog,,241,,,1st,144.6
+17,Brylie Reeves,608,Hog,,246,,,1st,147.6
+18,Paige Sears,680,Hog,,246,,,1st,147.6
+19,Lilly McEvoy,721,Hog,,250,,,1st,150
+20,Abi Lemon,659,Hog,,253,,,1st,151.8
+21,Elsie Lemon,662,Hog,,254,,,1st,152.4
+22,Aubrey Trujillo,751,Hog,,256,,,1st,153.6
+23,Lainey Vidmar,676,Hog,,256,,,1st,153.6
+24,Emma Bangert,701,Hog,,262,,,1st,157.2
+25,Orrin Mease,734,Hog,,268,,,1st,160.8
+26,Charly Menge,614,Hog,,273,,,1st,163.8
+27,Addie Hudson,102,Lamb,,146,,,Grand,189.8
+28,Adisyn Pinnt,195,Lamb,,135,,,Reserve,175.5
+29,Daniel Denton,228,Lamb,,120,,,1st,156
+30,Shyanne Draper,191,Lamb,,130,,,1st,169
+31,Tyler Draper,188,Lamb,,144,,,1st,187.2
+32,Tucker Gillilan,205,Lamb,,156,,,1st,202.8
+33,Aiden Azcarraga,185,Lamb,,121,,,2nd,157.3
+34,Justin Scott,176,Lamb,,130,,,2nd,169
+35,Taylor Fromang,224,Lamb,,153,,,2nd,198.9
+36,Addie Hudson,302,Goat,,94,,,Grand,188
+37,Kolby Russell,319,Goat,,77,,,Reserve,154
+38,Taryn Rowland,333,Goat,,70,,,2nd,140
+39,Erica Young,357,Goat,,82,,,2nd,164
+40,Brooklynne Russell,312,Goat,,100,,,2nd,200
+41,Grace Gardner,CM10,Rabbit,,3.1,,,1st,10
+42,Brennan Miller,BF1,Rabbit,,3.11,,,2nd,10
+43,Tyler Fritzlan,,Poutlry,,15.9,,,1st,11.925
+44,Embree Sorensen,,Poutlry,,22.5,,,2nd,16.875
+45,Chance Miller,,Poutlry,,18.5,,,2nd,13.875
+46,Kimberlyn Miles,63,Market Steer,,1117,,,2nd,1217.53
+47,Waylen Dorscher,14,Market Steer,,1177,,,2nd,1282.93
+48,Hunter Gillilan,2,Market Steer,,1246,,,2nd ,1358.14
+49,Nephi Steed,50,Market Steer,,1366,,,2nd,1488.94
+50,Branson Padgett,28,Market Steer,,1436,,,2nd,1565.24
+51,Evangelina Chacon,38,Market Steer,,1534,,,2nd,1672.06
+52,Taylor Bales,777,Hog,,240,,,2nd,144
+53,Jayce Siersma,666,Hog,,241,,,2nd,144.6
+54,Logan Uhrich,640,Hog,,241,,,2nd,144.6
+55,Lucas Ullrey,767,Hog,,241,,,2nd,144.6
+56,Casey Hudson,711,Hog,,249,,,2nd,149.4
+57,Waylon Cowden,626,Hog,,257,,,2nd,154.2
+58,Noah McEvoy,727,Hog,,262,,,2nd,157.2
+59,Kailee Landini,602,Hog,,263,,,2nd,157.8
+60,Cooper Montgomery,754,Hog,,263,,,2nd,157.8
+61,Hailey Jones,620,Hog,,268,,,2nd ,160.8
+62,Parker Clarke,695,Hog,,271,,,2nd,162.6
+63,Logan Bangert,704,Hog,,273,,,2nd,163.8
+64,Ryer Roberts,766,Hog,,277,,,2nd,166.2
+65,Izzy Mease,732,Hog,,280,,,2nd,168
+66,Reina Roberts,764,Hog,,280,,,2nd,168
+67,Lexi Addison,136,Lamb,,108,,,3rd,140.4
+68,Hannah Gillilan,181,Lamb,,142,,,3rd,184.6
+69,Max Orchard,178,Lamb,,156,,,3rd,202.8
+70,Victorya Pena,136,Lamb,,105,,,4th,136.5
+71,Traci Chinn,210,Lamb,,113,,,4th,146.9
+72,Brynna Katzenberger,118,Lamb,,122,,,4th,158.6
+73,Chloe Schrader,154,Lamb,,135,,,4th,175.5
+74,Lexie Uhrich,198,Lamb,,143,,,4th,185.9
+75,Clara Baleztena,225,Lamb,,148,,,4th,192.4
+76,Alexis Bingham,363,Goat,,68,,,3rd,136
+77,Eliana Steele,362,Goat,,69,,,3rd,138
+78,Kylee Casto,340,Goat,,76,,,3rd,152
+79,Erica Blum,327,Goat,,86,,,3rd,172
+80,Claire Meuret,CM1,Rabbit,,8.1,,,2nd,10
+81,Faith Welage,3WM2,Rabbit,,3.12,,,3rd,10
+82,Riley Haifley,,Poultry,,20.8,,,2nd,15.6
+83,Chloe Hammond,,Poultry,,22.2,,,2nd,16.65
+84,Lexi Hulet,,Poultry,,24.7,,,3rd,18.525
+85,Luke Massey,59,Market Steer,,1108,,,3rd,1207.72
+86,Josephine Bunkelman,29,Market Steer,,1156,,,3rd,1260.04
+87,Kelby Kaufman,1,Market Steer,,1243,,,3rd,1354.87
+88,Kane Hill,15,Market Steer,,1296,,,3rd,1412.64
+89,Riley Junge,33,Market Steer,,1390,,,3rd,1515.1
+90,Rusty Junge,34,Market Steer,,1448,,,3rd,1578.32
+91,Ethan Massey,56,Market Steer,,1231,,,4th,1341.79
+92,Jace Rogers,54,Market Steer,,1305,,,4th,1422.45
+93,Colby Capps,681,Hog,,242,,,3rd,145.2
+94,Delanie Spaid,656,Hog,,246,,,3rd,147.6
+95,Garrett Draper,749,Hog,,248,,,3rd,148.8
+96,Mason Stocking,607,Hog,,255,,,3rd,153
+97,Kyler Greenhow,637,Hog,,256,,,3rd,153.6
+98,Brycen Crabb,688,Hog,,259,,,3rd,155.4
+99,Lyle Uhrich,642,Hog,,259,,,3rd,155.4
+100,Jory Hampton,773,Hog,,261,,,3rd,156.6
+101,Rolland Mease,741,Hog,,264,,,3rd,158.4
+102,Bryson Reeves,611,Hog,,267,,,3rd,160.2
+103,Abby Dickenson,610,Hog,,275,,,3rd,165
+104,Brady Vidmar,673,Hog,,276,,,3rd,165.6
+105,Brook Keeling,758,Hog,,239,,,4th,143.4
+106,Trayce Bornschein,621,Hog,,245,,,4th,147
+107,Kayla Shepardson,167,Lamb,,106,,,5th,137.8
+108,Emree Himes,123,Lamb,,114,,,5th,148.2
+109,Kathleen Cox,172,Lamb,,116,,,5th,150.8
+110,Clayton Shepardson,174,Lamb,,127,,,5th,165.1
+111,Gunnar Schrader,153,Lamb,,158,,,5th,205.4
+112,Amaya Azcarraga,183,Lamb,,115,,,6th,149.5
+113,Shaylyne Mitchell,148,Lamb,,125,,,6th,162.5
+114,Danielle Long,109,Lamb,,127,,,6th,165.1
+115,Joey Rowland,331,Goat,,60,,,4th,120
+116,Channah Steele,358,Goat,,69,,,4th,138
+117,Caley Shiflett,309,Goat,,74,,,4th,148
+118,Ben Shiflett,307,Goat,,78,,,4th,156
+119,Jaiden Martinez,344,Goat,,84,,,4th,168
+120,Grace Welage,3WLG3,Rabbit,,6.1,,,3rd,10
+121,Oaklee Burnham,1KS2,Rabbit,,7.7,,,3rd,10
+122,Mason Kopp,,Poultry,,15.1,,,3rd,11.325
+123,Aidan Haifley ,,Poultry,,19.6,,,3rd,14.7
+124,Kyle Lynch,39,Market Steer,,1375,,,4th,1498.75
+125,Macie Rogers,53,Market Steer,,1380,,,4th,1504.2
+126,Triston Nichols,6,Market Steer,,1517,,,4th,1653.53
+127,James Niehues,66,Market Steer,,1123,,,5th,1224.07
+128,Ailis Yanez,36,Market Steer,,1169,,,5th,1274.21
+129,Marshal Himes,20,Market Steer,,1263,,,5th,1376.67
+130,Landon Koetter,40,Market Steer,,1370,,,5th,1493.3
+131,William Vrbas,37,Market Steer,,1403,,,5th,1529.27
+132,Kaylee Kostur,717,Hog,,248,,,4th,148.8
+133,Porter Briscoe,761,Hog,,250,,,4th,150
+134,Calla Speer,685,Hog,,250,,,4th,150
+135,Elijah Casto,645,Hog,,256,,,4th,153.6
+136,Tyrel Casto,647,Hog,,256,,,4th,153.6
+137,Seth Gillilan,759,Hog,,262,,,4th,157.2
+138,Alyssa Mow,650,Hog,,262,,,4th,157.2
+139,Adam Gillilan,649,Hog,,263,,,4th,157.8
+140,Cadey Roinestad,693,Hog,,265,,,4th,159
+141,Sanna Faye Bracco,618,Hog,,272,,,4th,163.2
+142,Savannah Jones,601,Hog,,276,,,4th,165.6
+143,Coy Sears,782,Hog,,279,,,4th,167.4
+144,Isabella Smith,667,Hog,,242,,,5th,145.2
+145,Shaylee Spaid,775,Hog,,250,,,5th,150
+146,Miranda Deeths,200,Lamb,,137,,,6th,178.1
+147,Arabella TenEyck,161,Lamb,,139,,,6th,180.7
+148,Claris McCoy,156,Lamb,,146,,,6th,189.8
+149,Charis Pettit,125,Lamb,,153,,,6th,198.9
+150,Sammi Addison,142,Lamb,,110,,,7th,143
+151,Colten Cox,171,Lamb,,130,,,7th,169
+152,Gracen Pettit,129,Lamb,,158,,,7th,205.4
+153,Harold Stafford,233,Lamb,,112,,,8th,145.6
+154,Judah Steele,360,Goat,,70,,,5th,140
+155,Maddie White,354,Goat,,84,,,5th,168
+156,Kalli Brown,347,Goat,,66,,,6th,132
+157,Hope Welage,3WMD5,Rabbit,,3.13,,,4th,10
+158,Asher Childs,D,Rabbit,,5.13,,,4th,10
+159,Samuel Morgan,,Poultry,,6,,,3rd,4.5
+160,Wyatt Haifley,,Poultry,,18.6,,,4th,13.95
+161,Kyanna Himes,21,Market Steer,,1091,,,6th,1189.19
+162,Antonio Treto,61,Market Steer,,1177,,,6th,1282.93
+163,Jack Shepardson,31,Market Steer,,1243,,,6th,1354.87
+164,Bailey Burough,12,Market Steer,,1425,,,6th,1553.25
+165,TJ Miles,64,Market Steer,,1360,,,6th,1482.4
+166,Caleb Paulson,683,Hog,,253,,,5th,151.8
+167,Cope Valdez,654,Hog,,254,,,5th,152.4
+168,Kendra Paulson,684,Hog,,260,,,5th,156
+169,Sofia Smith,670,Hog,,265,,,5th,159
+170,Cheyenne Bracco,617,Hog,,268,,,5th,160.8
+171,Aubrey Crabb,689,Hog,,268,,,5th,160.8
+172,Ronalee Massey,692,Hog,,271,,,5th,162.6
+173,Brayden Siersma,664,Hog,,274,,,5th,164.4
+174,Sienna Ludlam,606,Hog,,283,,,5th,169.8
+175,Barret Hisel,625,Hog,,237,,,6th,142.2
+176,MaKenna Montgomery,753,Hog,,242,,,6th,145.2
+177,Dean Stafford,634,Hog,,245,,,6th,147
+178,Jaryn Hampton,769,Hog,,258,,,6th,154.8
+179,Kenli Fitch,696,Hog,,264,,,6th,158.4
+180,Gavin Tweedy,217,Lamb,,116,,,8th,150.8
+181,Clayton Long,108,Lamb,,127,,,8th,165.1
+182,Myla Gumone,135,Lamb,,140,,,8th,182
+183,Avery Smith,212,Lamb,,114,,,9th,148.2
+184,Sterling Schrader,150,Lamb,,129,,,9th,167.7
+185,Brooke Pettit,127,Lamb,,137,,,9th,178.1
+186,Raistlin Jorgensen,219,Lamb,,140,,,9th,182
+187,Rowen Reigles,164,Lamb,,151,,,9th,196.3
+188,Titus Steele,359,Goat,,73,,,6th,146
+189,Kody Halton,324,Goat,,83,,,6th,166
+190,Jaykin Spaid,352,Goat,,97,,,6th,194
+191,Amberlynn Lechleiter,AA3,Rabbit,,5.5,,,5th,10
+192,Leah Williams,,Poultry,,19.3,,,6th,14.475
+193,Aspen Valdez,,Poultry,,19.2,,,7th,14.4
+194,Brenlia Reddick,25,Market Steer,,1074,,,7th,1170.66
+195,Karysa Massey,58,Market Steer,,1186,,,7th,1292.74
+196,Tyler Massey,60,Market Steer,,1236,,,7th,1347.24
+197,Haylee Nichols,9,Market Steer,,1275,,,7th,1389.75
+198,Madilynn Bunkelman,30,Market Steer,,1366,,,7th,1488.94
+199,Will Massey,57,Market Steer,,1421,,,7th,1548.89
+200,Brooklyn Montgomery,755,Hog,,266,,,6th,159.6
+201,Mallory Sievers,678,Hog,,271,,,6th,162.6
+202,Madelyn Stocking,605,Hog,,277,,,6th,166.2
+203,Hailey Cowden,629,Hog,,241,,,7th,144.6
+204,Abby Smith,672,Hog,,246,,,7th,147.6
+205,Mila Wilkinson,653,Hog,,253,,,7th,151.8
+206,Laylah Casto,643,Hog,,261,,,7th,156.6
+207,Bayley Blum,632,Hog,,275,,,7th,165
+208,Julia Murphy,615,Hog,,264,,,8th,158.4
+209,James Whitmore,677,Hog,,273,,,8th,163.8
+210,Kaidynce Sturm,202,Lamb,,101,,,10th,131.3
+211,Justin Gumone,134,Lamb,,107,,,10th,139.1
+212,Ethan Smith,213,Lamb,,120,,,10th,156
+213,Emily Bailey,170,Lamb,,133,,,10th,172.9
+214,Blake Hawkins,113,Lamb,,150,,,10th,195
+215,Desylva Jorgensen,218,Lamb,,130,,,11th,169
+216,Abree Brown,348,Goat,,69,,,7th,138
+217,Kaelyn West,338,Goat,,78,,,7th,156
