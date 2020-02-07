@@ -1,0 +1,482 @@
+* {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  transition: 0.3s ease; }
+
+body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-size: 16px; }
+
+.logo {
+  width: 150px; }
+
+a {
+  text-decoration: none; }
+
+h1 {
+  color: #339966; }
+
+.errorMsg {
+  color: #ff0000; }
+
+button {
+  cursor: pointer;
+  border: none; }
+
+/* DISPLAY PAGE */
+.display__header {
+  font-size: 50px;
+  line-height: 100%;
+  color: #339966;
+  text-transform: uppercase; }
+
+.display__header--white {
+  font-size: 50px;
+  line-height: 100%;
+  color: #ffffff;
+  text-transform: uppercase; }
+
+.display__exhibitor-name {
+  font-size: 50px;
+  font-weight: 600;
+  line-height: 100%; }
+
+.display__exhibitor-info {
+  font-size: 45px;
+  font-weight: 600;
+  line-height: 100%; }
+
+.display__second-header {
+  font-size: 25px;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: #339966; }
+
+.currentsale, .previoussale {
+  height: 100vh;
+  padding: 25px 50px;
+  float: left; }
+
+.currentsale {
+  width: 30%;
+  background-color: #339966;
+  color: #ffffff; }
+
+.previoussale {
+  width: 70%;
+  display: grid;
+  color: #606060;
+  grid-template-areas: 'previoussale buyers' 'addons addons'; }
+
+.previoussale {
+  grid-area: previoussale; }
+
+.addons {
+  grid-area: addons; }
+
+.buyers {
+  grid-area: buyers; }
+
+.buyers {
+  border: 1px solid #339966;
+  width: 100%;
+  margin-top: 50px;
+  padding: 15px 25px 0px 25px; }
+
+.buyer {
+  font-size: 55px; }
+
+.purchaseAmount {
+  font-size: 40px;
+  font-weight: 600;
+  margin-top: 25px; }
+
+.addon {
+  display: inline-block;
+  font-weight: 600;
+  font-size: 27px;
+  margin: 5px 10px;
+  background-color: #f1f1f1;
+  padding: 15px 10px;
+  border-radius: 5px; }
+
+.form__button {
+  width: 100%;
+  background-color: #339966;
+  height: 50px;
+  color: #ffffff;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer; }
+
+.form__button:hover {
+  background-color: #f1f1f1;
+  color: #339966; }
+
+/* LOGIN PAGE */
+.login {
+  width: 400px;
+  margin: 100px auto 0px auto;
+  text-align: center; }
+
+/* ADMIN PAGE */
+.admin {
+  margin: 100px 0px 50px 0px;
+  text-align: center; }
+
+.admin-button {
+  width: 100%;
+  height: 60px;
+  background-color: #f1f1f1;
+  color: #339966;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer; }
+
+.admin-button:hover {
+  background-color: #339966;
+  color: #ffffff; }
+
+.admin-button-logout {
+  width: 100%;
+  height: 60px;
+  background-color: #339966;
+  color: #ffffff;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer; }
+
+.admin-button-logout:hover {
+  background-color: #fadc23;
+  color: #339966; }
+
+input {
+  width: 100%;
+  height: 50px;
+  margin-bottom: 15px;
+  padding: 10px 15px;
+  border: 1px solid #f1f1f1;
+  color: #000000; }
+
+/* TRANSACTION TABLES */
+.transaction {
+  margin-top: 100px;
+  text-align: center; }
+
+.transaction__top-button--yellow {
+  background-color: #fadc23;
+  width: 300px;
+  height: 50px;
+  color: #339966;
+  font-weight: 600;
+  cursor: pointer; }
+
+.transaction__top-button--yellow:hover {
+  background-color: #339966;
+  color: #ffffff; }
+
+.transaction__top-button {
+  background-color: #339966;
+  width: 300px;
+  height: 50px;
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer; }
+
+.transaction__top-button:hover, .transaction__top-button--yellow:hover {
+  background-color: #f1f1f1;
+  color: #339966; }
+
+.button-arrow {
+  font-size: 25px; }
+
+.transaction__form {
+  width: 500px;
+  display: block;
+  margin: 100px auto 50px auto;
+  text-align: left;
+  border: 1px solid #339966;
+  padding: 25px;
+  border-radius: 10px; }
+
+.input-field__label {
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: #606060; }
+
+.input__name-label {
+  font-size: 14px;
+  color: #606060;
+  margin: 10px 0px;
+  display: block;
+  font-style: italic; }
+
+.form__button--second {
+  width: 100%;
+  background-color: #f1f1f1;
+  height: 50px;
+  color: #339966;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer; }
+
+.form__button--second:hover {
+  background-color: #339966;
+  color: #ffffff; }
+
+.form__section {
+  padding-bottom: 30px; }
+
+.errorLabel {
+  color: #ff0000;
+  font-size: 12px;
+  display: block;
+  margin: 10px 0px;
+  float: right; }
+
+/* ADDON TRANSACTION */
+.addon_transaction {
+  text-align: center;
+  margin: 10px; }
+
+.sale_form {
+  border: 1px solid green;
+  margin: 20px;
+  padding: 10px; }
+
+.sale_view {
+  height: 80vh;
+  background-color: #339966;
+  color: #ffffff;
+  margin: 20px; }
+
+.addon_grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "sale_form sale_view sale_view sale_view sale_view"; }
+
+.sale_form { grid-area: sale_form; }
+
+.sale_view {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  grid-template-areas: "current_exhibitor current_buyers current_addons current_addons2";
+  grid-area: sale_view; }
+
+.current_exhibitor { grid-area: current_exhibitor; }
+
+.current_buyers { grid-area: current_buyers; }
+
+.current_addons { grid-area: current_addons; }
+
+.current_addons2 { grid-area: current_addons2; }
+
+/* CONSTRUCTION */
+.construction {
+  margin: 100px auto 0px auto;
+  display: block;
+  width: 50%; }
+
+.construction-button {
+  width: 100%;
+  background-color: #fadc23;
+  height: 50px;
+  color: #339966;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer; }
+
+.construction-button:hover {
+  background-color: #f1f1f1;
+  color: #339966; }
+
+.construction__image {
+  margin-top: 50px;
+  width: 100%; }
+
+/* MANAGE DATA PAGE */
+.manage {
+  padding: 0px 10px; }
+
+.dashboard-button {
+  width: 200px;
+  height: 60px;
+  background-color: #fadc23;
+  color: #339966;
+  font-weight: 600;
+  margin: 3px; }
+
+.dashboard-button:hover {
+  background-color: #f1f1f1;
+  color: #339966; }
+
+.manage__button {
+  width: 200px;
+  height: 60px;
+  background-color: #339966;
+  color: #ffffff;
+  font-weight: 600;
+  margin: 3px; }
+
+.manage__button:hover {
+  background-color: #f1f1f1;
+  color: #339966; }
+
+nav {
+  padding: 10px 20px; }
+
+#manageExhibitors, #manageBuyers {
+  margin: 0px 25px; }
+
+/* MANAGE BUYERS */
+.importExport {
+  float: right; }
+
+.manage__table {
+  margin: 15px 0px;
+  padding: 10px 15px;
+  border: 1px solid #339966;
+  color: #404040;
+  width: 100%; }
+
+.table__rows {
+  margin: 10px 10px;
+  padding: 5px 10px; }
+
+td {
+  padding: 10px; }
+
+strong {
+  color: #339966;
+  font-size: 12px;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: 900; }
+
+.clickable:hover strong {
+  cursor: pointer;
+  color: #fadc23;
+  text-decoration: underline; }
+
+.form {
+  width: 500px;
+  margin: 100px auto 100px auto;
+  border: 1px solid #339966;
+  padding: 25px; }
+
+.confirmLabelContainer {
+  margin-bottom: 10px;
+  color: #32CD32; }
+
+/* GUI TRANSACTION */
+.alternative_transaction {
+  text-align: center;
+  margin: 10px; }
+
+.inner_table {
+  padding: 10px;
+  text-align: left; }
+
+.warning_label {
+  color: #fadc23;
+  font-size: 30px; }
+
+.warning_label:after{
+  content: &#9888; }
+
+.warning_label:hover:after{
+  font-size: 20px;
+  content: 'Sale Number is not = to Current Sale'; }
+
+.clickable:hover {
+  cursor: pointer;
+  color: #fadc23;
+  text-decoration: underline; }
+
+.submit_current_button {
+  background-color: #fadc23;
+  color: green;
+  margin-bottom: 15px;
+  padding: 10px 15px; }
+
+.change_view_input {
+  border: 1px solid green; }
+
+.green_border {
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid green;  }
+
+.current_sale_form {
+  border: 1px solid green;
+  padding: 10px;
+  margin-right: 20px; }
+
+.current_sale_view {
+  height: 43vh;
+  color: #ffffff;
+  background-color: #339966;  }
+
+.previous_sale_view {
+  color: #339966;
+  border: 1px solid #339966;  }
+
+.previous_exhibitor, .current_exhibitor {
+  font-size: 30px; }
+
+.grid-container {
+  margin-top: 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-areas: "current_sale_form current_sale_view current_sale_view current_sale_view" "current_sale_form current_sale_view current_sale_view current_sale_view" "current_sale_form previous_sale_view previous_sale_view previous_sale_view" "current_sale_form previous_sale_view previous_sale_view previous_sale_view";
+}
+
+.current_sale_form { grid-area: current_sale_form; }
+
+.current_sale_view {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-areas: "current_exhibitor current_buyers current_addons current_addons2" "current_exhibitor current_buyers current_addons current_addons2" "current_exhibitor current_buyers current_addons current_addons2" "current_exhibitor current_buyers current_addons current_addons2" "button_holder button_holder button_holder button_holder";
+  grid-area: current_sale_view;
+}
+
+.current_exhibitor { grid-area: current_exhibitor; }
+
+.current_buyers { grid-area: current_buyers; }
+
+.current_addons { grid-area: current_addons; }
+
+.button_holder { grid-area: button_holder; }
+
+.current_addons2 { grid-area: current_addons2; }
+
+.previous_sale_view {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-areas: "previous_exhibitor previous_buyers previous_addons previous_addons2" "previous_exhibitor previous_buyers previous_addons previous_addons2" "previous_exhibitor previous_buyers previous_addons previous_addons2" "previous_exhibitor previous_buyers previous_addons previous_addons2" "button_holder button_holder button_holder button_holder";
+  grid-area: previous_sale_view;
+}
+.previous_exhibitor { grid-area: previous_exhibitor; }
+
+.previous_buyers { grid-area: previous_buyers; }
+
+.previous_addons { grid-area: previous_addons; }
+
+.button_holder { grid-area: button_holder; }
+
+.previous_addons2 { grid-area: previous_addons2; }
+/*# sourceMappingURL=styling.css.map */

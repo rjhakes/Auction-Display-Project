@@ -1,0 +1,407 @@
+$green: #339966;
+$white: #ffffff;
+$darkGray: #606060;
+$lightGray: #f1f1f1;
+$gray: #bfbfbf;
+$yellow: #fadc23;
+$red: #ff0000;
+$black: #000000;
+
+
+* {
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  transition: 0.3s ease;
+}
+
+body{
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-size: 16px;
+}
+
+.logo{
+  width: 150px;
+}
+
+a{
+  text-decoration: none;
+}
+
+h1{
+  color: $green;
+}
+
+.errorMsg{
+  color: $red;
+}
+
+button{
+  cursor: pointer;
+  border: none;
+}
+
+/* DISPLAY PAGE */
+.display__header{
+  font-size: 50px;
+  line-height: 100%;
+  color: $green;
+  text-transform: uppercase;
+}
+
+.display__header--white{
+  font-size: 50px;
+  line-height: 100%;
+  color: $white;
+  text-transform: uppercase;
+}
+
+.display__exhibitor-name{
+  font-size: 40px;
+  font-weight: 600;
+  line-height: 100%;
+}
+
+.display__exhibitor-info{
+  font-size: 25px;
+  font-weight: 600;
+  line-height: 100%;
+}
+
+.display__second-header{
+  font-size: 25px;
+  font-weight: 900;
+  text-transform: uppercase;
+  color: $green;
+}
+
+.currentsale, .previoussale{
+  height: 100vh;
+  padding: 25px 50px;
+  float: left;
+}
+
+.currentsale{
+  width: 30%;
+  background-color: $green;
+  color: $white;
+}
+
+.previoussale{
+  width: 70%;
+  display: grid;
+  color: $darkGray;
+  grid-template-areas:
+    'previoussale buyers'
+    'addons addons';
+}
+
+.previoussale{ grid-area: previoussale; }
+.addons{ grid-area: addons; }
+.buyers{ grid-area: buyers; }
+
+.buyers{
+  border: 1px solid $green;
+  width: 100%;
+  margin-top: 50px;
+  padding: 15px 25px 0px 25px;
+}
+
+.buyer{
+  font-size: 35px;
+}
+
+.purchaseAmount{
+  font-size: 25px;
+  font-weight: 600;
+  margin-top: 25px;
+}
+
+.addon{
+  display: inline-block;
+  font-weight: 600;
+  font-size: 20px;
+  margin: 5px 10px;
+  background-color: $lightGray;
+  padding: 15px 10px;
+  border-radius: 5px;
+}
+
+.form__button{
+  width: 100%;
+  background-color: $green;
+  height: 50px;
+  color: $white;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.form__button:hover{
+  background-color: $lightGray;
+  color: $green;
+}
+
+/* LOGIN PAGE */
+.login{
+  width: 400px;
+  margin: 100px auto 0px auto;
+  text-align: center;
+}
+
+/* ADMIN PAGE */
+.admin{
+  margin: 100px 0px 50px 0px;
+  text-align: center;
+}
+
+.admin-button{
+  width: 100%;
+  height: 60px;
+  background-color: $lightGray;
+  color: $green;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.admin-button:hover{
+  background-color: $green;
+  color: $white;
+}
+
+.admin-button-logout{
+  width: 100%;
+  height: 60px;
+  background-color: $green;
+  color: $white;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.admin-button-logout:hover{
+  background-color: $yellow;
+  color: $green;
+}
+
+input{
+  width: 100%;
+  height: 50px;
+  margin-bottom: 15px;
+  padding: 10px 15px;
+  border: 1px solid $lightGray;
+  color: $black;
+}
+
+/* TRANSACTION TABLES */
+.transaction{
+  margin-top: 100px;
+  text-align: center;
+}
+
+.transaction__top-button--yellow{
+  background-color: $yellow;
+  width: 300px;
+  height: 50px;
+  color: $green;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.transaction__top-button--yellow:hover{
+  background-color: $green;
+  color: $white;
+}
+
+.transaction__top-button{
+  background-color: $green;
+  width: 300px;
+  height: 50px;
+  color: $white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.transaction__top-button:hover, .transaction__top-button--yellow:hover{
+  background-color: $lightGray;
+  color: $green;
+}
+
+.button-arrow{
+  font-size: 25px;
+}
+
+.transaction__form{
+  width: 500px;
+  display: block;
+  margin: 100px auto 50px auto;
+  text-align: left;
+  border: 1px solid $green;
+  padding: 25px;
+  border-radius: 10px;
+}
+
+.input-field__label{
+  font-size: 12px;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: $darkGray;
+}
+
+.input__name-label{
+  font-size: 14px;
+  color: $darkGray;
+  margin: 10px 0px;
+  display: block;
+  font-style: italic;
+}
+
+.form__button--second{
+  width: 100%;
+  background-color: $lightGray;
+  height: 50px;
+  color: $green;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.form__button--second:hover{
+  background-color: $green;
+  color: $white;
+}
+
+.form__section{
+  padding-bottom: 30px;
+}
+
+.errorLabel{
+  color: $red;
+  font-size: 12px;
+  display: block;
+  margin: 10px 0px;
+  float: right;
+}
+
+/* CONSTRUCTION */
+.construction{
+  margin: 100px auto 0px auto;
+  display: block;
+  width: 50%;
+}
+
+.construction-button{
+  width: 100%;
+  background-color: $yellow;
+  height: 50px;
+  color: $green;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.construction-button:hover{
+  background-color: $lightGray;
+  color: $green;
+}
+
+.construction__image{
+  margin-top: 50px;
+  width: 100%;
+}
+
+/* MANAGE DATA PAGE */
+.manage{
+  padding: 0px 10px;
+}
+
+.dashboard-button{
+  width: 200px;
+  height: 60px;
+  background-color: $yellow;
+  color: $green;
+  font-weight: 600;
+  margin: 3px;
+}
+.dashboard-button:hover{
+  background-color: $lightGray;
+  color: $green;
+}
+
+.manage__button{
+  width: 200px;
+  height: 60px;
+  background-color: $green;
+  color: $white;
+  font-weight: 600;
+  margin: 3px;
+}
+
+.manage__button:hover{
+  background-color: $lightGray;
+  color: $green;
+}
+
+nav{
+  padding: 10px 20px;
+}
+
+#manageExhibitors, #manageBuyers{
+  margin: 0px 25px;
+}
+
+/* MANAGE BUYERS */
+.importExport{
+  float: right;
+}
+
+.manage__table{
+  margin: 15px 0px;
+  padding: 10px 15px;
+  border: 1px solid #339966;
+  color: #404040;
+  width: 100%;
+}
+
+.table__rows{
+  margin: 10px 10px;
+  padding: 5px 10px;
+}
+
+td{
+  padding: 10px;
+}
+
+strong{
+  color: $green;
+  font-size: 12px;
+  text-transform: uppercase;
+  cursor: pointer;
+  font-weight: 900;
+}
+
+.clickable:hover strong{
+  cursor: pointer;
+  color: $yellow;
+  text-decoration: underline;
+}
+
+.form{
+  width: 500px;
+  margin: 100px auto 100px auto;
+  border: 1px solid $green;
+  padding: 25px;
+}
+
+.confirmLabelContainer{
+  margin-bottom: 10px;
+  color: #32CD32;
+}
