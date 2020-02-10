@@ -1,6 +1,6 @@
 const express = require('express')
 const displayRoutes = express.Router()
-const Display = require('../models/Display')
+const Display = require('../models/display')
 
 // Fetch single display by saleNumber
 displayRoutes.route('/saleNumber/:saleNumber').get((req, res) => {
