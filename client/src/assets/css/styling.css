@@ -321,7 +321,7 @@ input {
   background-color: #f1f1f1;
   color: #339966; }
 
-.manage__button {
+.exhibitors__button {
   width: 200px;
   height: 60px;
   background-color: #339966;
@@ -329,9 +329,29 @@ input {
   font-weight: 600;
   margin: 3px; }
 
-.manage__button:hover {
+.exhibitors__button:hover {
   background-color: #f1f1f1;
   color: #339966; }
+
+.exhibitors__button:focus {
+  background-color: #f1f1f1;
+  color: #339966; }
+
+.buyers__button {
+  width: 200px;
+  height: 60px;
+  background-color: #339966;
+  color: #ffffff;
+  font-weight: 600;
+  margin: 3px; }
+  
+.buyers__button:hover {
+  background-color: #f1f1f1;
+  color: #339966; }
+
+.buyers__button:focus {
+  background-color: #f1f1f1;
+  color: #339966;}
 
 nav {
   padding: 10px 20px; }
