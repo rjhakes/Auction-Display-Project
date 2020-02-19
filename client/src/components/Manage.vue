@@ -5,7 +5,8 @@
       <router-link v-bind:to="{ name: 'Admin' }">
         <button class="dashboard-button">Return to Dashboard</button>
       </router-link>
-      <button class="manage__button" @click='view = !view'>Toggle View</button>
+      <button class="exhibitors__button" @click='view=true'>View Exhibitors</button>
+      <button class="buyers__button" @click='view=false'>View Buyers</button>
     </nav>
     <template v-if="view">
       <manageExhibitors></manageExhibitors>
@@ -16,9 +17,6 @@
   </main>
 </template>
 
-
-
-
 <script>
 import ManageExhibitors from './ManageExhibitors.vue'
 import ManageBuyers from './ManageBuyers.vue'
@@ -28,7 +26,8 @@ export default {
   data() {
     return {
       // view: true
-      view: this.$route.params.view
+      view: true,  // this.$route.params.view,
+      btnDisalbed: true
     }
   },
   methods: {
@@ -41,5 +40,4 @@ export default {
     'manageBuyers': ManageBuyers
   }
 }
-
 </script>

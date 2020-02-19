@@ -3,12 +3,12 @@
     <div id="control">
       <h1>Buyers</h1>
       <router-link v-bind:to="{ name: 'NewBuyer' }">
-        <button class="manage__button">Add New Buyer</button>
+        <button class="buyers__button">Add New Buyer</button>
       </router-link>
-      <button class="manage__button" @click=deleteAll()>Delete All Buyers</button>
+      <button class="buyers__button" @click=deleteAll()>Delete All Buyers</button>
       <section class="importExport">
-        <button class="manage__button right" @click=getCsvReport()>Export All Buyers</button>
-        <button class="manage__button right" onclick="document.getElementById('file').click();">Import Buyers</button>
+        <button class="buyers__button right" @click=getCsvReport()>Export All Buyers</button>
+        <button class="buyers__button right" onclick="document.getElementById('file').click();">Import Buyers</button>
       </section>
       <input type="file" style="display:none;" id="file" name="file" @change="loadCSV($event)">
     </div>
