@@ -353,6 +353,22 @@ input {
   background-color: #f1f1f1;
   color: #339966;}
 
+.transaction__button {
+  width: 200px;
+  height: 60px;
+  background-color: #339966;
+  color: #ffffff;
+  font-weight: 600;
+  margin: 3px; }
+  
+.transaction__button:hover {
+  background-color: #f1f1f1;
+  color: #339966; }
+
+.transaction__button:focus {
+  background-color: #f1f1f1;
+  color: #339966;}
+
 nav {
   padding: 10px 20px; }
 

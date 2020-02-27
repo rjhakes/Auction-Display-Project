@@ -51,6 +51,21 @@ transactionRoutes.route('/:id').get((req, res) => {
   });
 });
 
+// Fetch single transaction by saleNumber
+transactionRoutes.route('/saleNumber/:saleNumber').get((req, res) => {
+  var saleNumber = req.params.bidderNumber;
+  Transaction.findOne({'saleNumber': saleNumber}, (err, transaction) => {
+    if (err) {
+      console.log(err);
+      res.json(err)
+    }
+    else {
+      res.json(transaction)
+    }
+  })
+})
+
+
 // Update transaction
 transactionRoutes.route('/:id').put((req, res) => {
   Transaction.findById(req.params.id, (err, transaction) => {

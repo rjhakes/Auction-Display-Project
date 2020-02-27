@@ -27,7 +27,7 @@ export default {
     return {
       // view: true
       view: true,  // this.$route.params.view,
-      btnDisalbed: true
+      //btnDisalbed: true
     }
   },
   methods: {
