@@ -38,6 +38,8 @@ const dict = {
       email: 'Email Address',
       logoFileName: 'Logo Filename',
       // Transaction
+      //saleNumber: 'Sale Number',
+      //bidderNumber: 'Bidder Number',
       purchaseAmount: 'Purchase Amount',
       purchaseType: 'Purchase Type'
     },

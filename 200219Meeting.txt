@@ -1,0 +1,47 @@
+Recent changes
+	Import working
+	Manage Data Page: Toggle View
+			color permanence
+	import export buttons work
+
+
+
+ 
+Working On
+	Submitting Transaction
+		delete button
+		GUI Transactions
+			Out of Order input
+			load in existing values
+			one button submission/ edit
+
+
+	Mongo data structure copy
+	GUI start-up
+		Bash Script
+		Add Page
+		-->Host
+			show IP address
+			full list
+		-->Display	
+			IP address input
+			Options
+	Sale Display 
+		Logos
+		parser
+	
+
+	single action start-up
+	LAN - LAN
+	error tracking
+
+	add transactions to Manage Data Page
+		build transactions manage page
+
+
+	hotspot 
+
+	add a .command extension to you script,   allows us to run the app from the desktop like an .exe
+	setup github account
+	
+run without mongo

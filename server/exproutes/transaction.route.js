@@ -19,12 +19,12 @@ transactionRoutes.route('/add').post(function (req, res) {
 
 // Fetch all transactions
 transactionRoutes.route('/').get(function (req, res) {
-    Transaction.find(function (err, transaction){
+    Transaction.find(function (err, transactions){
     if(err){
         console.log(err);
     }
     else {
-        res.json(transaction);
+        res.json(transactions);
     }
     })
 })
@@ -53,7 +53,7 @@ transactionRoutes.route('/:id').get((req, res) => {
 
 // Fetch single transaction by saleNumber
 transactionRoutes.route('/saleNumber/:saleNumber').get((req, res) => {
-  var saleNumber = req.params.bidderNumber;
+  var saleNumber = req.params.saleNumber;
   Transaction.findOne({'saleNumber': saleNumber}, (err, transaction) => {
     if (err) {
       console.log(err);

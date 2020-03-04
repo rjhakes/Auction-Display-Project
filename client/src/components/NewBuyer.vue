@@ -16,9 +16,9 @@
         <label class="errorLabel" for="logoFileName" >{{ errors.first('logoFileName') }}</label>
         <input v-validate="''" type=text name=logoFileName placeholder="Logo Filename" v-model=logoFileName autocomplete="off">
         <div class="confirmLabelContainer"><label id="confirmLabel"></label></div>
-        <button class="manage__button" @click=validate>Add</button>
-        <router-link v-bind:to="{ name: 'Manage', params: {view: false} }">
-          <button class="manage__button">Return to Manage</button>
+        <button class="buyers__button" @click=validate>Add</button>
+        <router-link v-bind:to="{ name: 'Manage', params: {view: false, view2: false} }">
+          <button class="buyers__button">Return to Manage</button>
         </router-link>
         <p>* Indicates required field.</p>
       </div>
@@ -154,7 +154,7 @@ export default {
       if (sts == 'success') {
         document.getElementById("confirmLabel").innerText = "Added successfully!"
       } else if (sts == 'fail') {
-        document.getElementById("confirmLabel").innerText = "Exhibitor not added"
+        document.getElementById("confirmLabel").innerText = "Buyer not added"
       } else {
         document.getElementById("confirmLabel").innerText = ''
       }

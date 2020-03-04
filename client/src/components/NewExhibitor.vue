@@ -24,9 +24,9 @@
       <label class="errorLabel" for="buyback" >{{ errors.first('buyback') }}</label>
       <input v-validate="'numeric'" type="text" name="buyback" placeholder="Buyback" v-model=buyback autocomplete="off">
       <div class="confirmLabelContainer"><label id="confirmLabel"></label></div>
-      <button class="manage__button" @click=validate>Add</button>
-      <router-link v-bind:to="{ name: 'Manage', params: {view: true } }">
-        <button class="manage__button">Return to Manage</button>
+      <button class="exhibitors__button" @click=validate>Add</button>
+      <router-link v-bind:to="{ name: 'Manage', params: {view: true, view2: false } }">
+        <button class="exhibitors__button">Return to Manage</button>
       </router-link>
       <p>* Indicates required field.</p>
     </div>

@@ -353,7 +353,7 @@ input {
   background-color: #f1f1f1;
   color: #339966;}
 
-.transaction__button {
+.transactions__button {
   width: 200px;
   height: 60px;
   background-color: #339966;
@@ -361,18 +361,18 @@ input {
   font-weight: 600;
   margin: 3px; }
   
-.transaction__button:hover {
+.transactions__button:hover {
   background-color: #f1f1f1;
   color: #339966; }
 
-.transaction__button:focus {
+.transactions__button:focus {
   background-color: #f1f1f1;
   color: #339966;}
 
 nav {
   padding: 10px 20px; }
 
-#manageExhibitors, #manageBuyers {
+#manageExhibitors, #manageBuyers, #manageTransactions {
   margin: 0px 25px; }
 
 /* MANAGE BUYERS */
@@ -429,7 +429,7 @@ strong {
   font-size: 30px; }
 
 .warning_label:after{
-  content: &#9888; }
+  content: #9888; }
 
 .warning_label:hover:after{
   font-size: 20px;
