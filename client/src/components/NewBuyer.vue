@@ -9,11 +9,11 @@
         <input v-validate="'required'" type=text name=name placeholder="Name*" v-model=name autocomplete="off">
         <label class="errorLabel" for="phone" >{{ errors.first('phone') }}</label>
         <cleave v-validate="'required|digits:10'" v-model="phone" :options="options" name="phone" placeholder="Phone* (555-555-5555)"></cleave>
-        <label class="errorLabel" for="contactName" >{{ errors.first('contactName') }}</label>
+        <!--<label class="errorLabel" for="contactName" >{{ errors.first('contactName') }}</label>-->
         <input v-validate="'alpha_spaces'" type=text name=contactName placeholder="Contact Name" v-model=contactName autocomplete="off">
-        <label class="errorLabel" for="email" >{{ errors.first('email') }}</label>
+        <!--<label class="errorLabel" for="email" >{{ errors.first('email') }}</label>-->
         <input v-validate="'email'" data-vv-as="email" type=text name=email placeholder="Email" v-model=email autocomplete="off">
-        <label class="errorLabel" for="logoFileName" >{{ errors.first('logoFileName') }}</label>
+        <!--<label class="errorLabel" for="logoFileName" >{{ errors.first('logoFileName') }}</label>-->
         <input v-validate="''" type=text name=logoFileName placeholder="Logo Filename" v-model=logoFileName autocomplete="off">
         <div class="confirmLabelContainer"><label id="confirmLabel"></label></div>
         <button class="buyers__button" @click=validate>Add</button>

@@ -8,9 +8,9 @@
         <label class="errorLabel" for="bidderNumber" >{{ errors.first('bidderNumber') }}</label>
         <input v-validate="'required|numeric'" type=text name=bidderNumber placeholder="BidderNumber*" v-model=bidderNumber autocomplete="off">
         <label class="errorLabel" for="purchaseAmount" >{{ errors.first('purchaseAmount') }}</label>
-        <input v-validate="'required|numeric'" v-model="purchaseAmount" :options="options" name="purchaseAmount" placeholder="Purchase Amount">
+        <input v-validate="'required|numeric'" v-model="purchaseAmount" :options="options" name="purchaseAmount" placeholder="Purchase Amount*">
         <label class="errorLabel" for="purchaseType" >{{ errors.first('purchaseType') }}</label>
-        <input v-validate="'required'" type=text name=purchaseType placeholder="Purchase Type" v-model=purchaseType autocomplete="off">
+        <input v-validate="'required'" type=text name=purchaseType placeholder="Purchase Type*" v-model=purchaseType autocomplete="off">
         
         <button class="transactions__button" @click=validate>Add</button>
         <router-link v-bind:to="{ name: 'Manage', params: {view: false, view2: true} }">
