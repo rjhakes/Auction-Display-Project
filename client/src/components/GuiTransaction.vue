@@ -1,38 +1,41 @@
 <template>
   <div class="alternative_transaction">
     <router-link v-bind:to="{ name: 'Admin' }">
-      <button class="transaction__top-button--yellow"><span class="button-arrow">&#8592;</span> Return to Dashboard</button>
+      <button class="transaction__top-button--yellow" tabindex=-1><span class="button-arrow">&#8592;</span> Return to Dashboard</button>
     </router-link>
     <main>
       <div class="grid-container">
         <div class="current_sale_form">
           <div class="green_border">
-            <button class="form__button" @click="displayCurrentExhibitor">Submit To Current Sale</button>
             <p class="input-field__label">Sale Number</p>
-            <input v-validate="'required|numeric'" type="number" v-on:input="getExhibitorBySaleNum" name="saleNumber" v-model="saleNumber">
+            <input v-validate="'required|numeric'" type="number" ref="saleNumber" v-on:input="getExhibitorBySaleNum" name="saleNumber" v-model="saleNumber" tabindex=1 autofocus>
             <label class="errorLabel" for="saleNumber">{{ errors.first('saleNumber') }}</label>
             <label class="input__name-label">Exhibitor Name: {{ exhibitorName }}</label>
+            <button class="form__button--second" @click="displayCurrentExhibitor" tabindex=1>Submit To Current Sale</button>
           </div>
           <div class="green_border">
             <section class="form__section">
               <p class="input-field__label">Buyer Bidder Number</p>
-              <input @focus="clearBidder" @blur="zeroBidder" v-validate="'required|numeric'" type="number" v-on:input="getBuyerByBidderNum" name="bidderNumber" v-model="bidderNumber">
+              <input @focus="clearBidder" @blur="zeroBidder" v-validate="'required|numeric'" type="number" v-on:input="getBuyerByBidderNum" name="bidderNumber" v-model="bidderNumber" tabindex=2>
               <label class="errorLabel" for="saleNumber" >{{ errors.first('bidderNumber') }}</label>
               <label class="input__name-label">Buyer Name: {{ buyerName }}</label>
-              <button class="form__button--second" @click="addNewBidder">Add Bidder</button>
-            </section>
+              <button class="form__button--second" @click="addNewBidder" tabindex=3>Add Bidder</button>
+            </section>0
           </div>
           <div class="green_border">
             <section class="form__section">
-              <p class="input-field__label">Addon Bidder Number</p>
-              <span class="warning_label" v-if="saleNumber < display.saleNumber"> &#9888;</span>
+              <p class="input-field__label">Processor</p>
+              <input v-validate="'required|alpha_spaces'" type="text" name="processor" placeholder="Processor" v-model=processor autocomplete="on" tabindex=4>
+              <!--<span class="warning_label" v-if="saleNumber < display.saleNumber"> &#9888;</span>
               <input @focus="clearAddon" @blur="zeroAddon" v-validate="'required|numeric'" type="number" v-on:input="getAddonByBidderNum" name="addonNumber" v-model="addonNumber">
               <label class="errorLabel" for="saleNumber" >{{ errors.first('addonNumber') }}</label>
               <label class="input__name-label">Buyer Name: {{ addonName }}</label>
               <p class="input-field__label">Amount</p>
               <label class="errorLabel" for="addonPurchaseAmount" >{{ errors.first('addonPurchaseAmount') }}</label>
-              <input @focus="clearPurchase" @blur="zeroPurchase" v-validate="'required|numeric'" type="number" name="addonPurchaseAmount" v-model="addonPurchaseAmount">
-              <button class="form__button--second" name="addBtn" @click="addNewAddonTransaction">Submit Addon</button>
+              <input @focus="clearPurchase" @blur="zeroPurchase" v-validate="'required|numeric'" type="number" name="addonPurchaseAmount" v-model="addonPurchaseAmount">-->
+              
+              <!--FIXME: @click="addNewProcessor"--> 
+              <button class="form__button--second" name="addBtn" @click="addNewAddonTransaction" tabindex=5>Submit Processor</button>
             </section>
           </div>
         </div>
@@ -57,26 +60,26 @@
           </div>
           <div class="current_addons">
             <table class="inner_table">
-              <thead>Addons</thead>
-              <tbody v-if="exhibitor != null && previousSaleNumber != exhibitor.saleNumber">
+              <thead>Processor</thead>
+              <!--<tbody v-if="exhibitor != null && previousSaleNumber != exhibitor.saleNumber">
                 <tr v-if="addon.column == 1" v-for="addon in addons" :key="addon._id">
                   <td>{{ addon.name }}</td>
                   <td>${{ addon.purchaseAmount }}</td>
                   <td class="clickable" @click="deleteAddon(addon._id)">Delete</td>
                 </tr>
-              </tbody>
+              </tbody>-->
             </table>
           </div>
           <div class="current_addons2">
             <table class="inner_table">
-              <thead>Addons</thead>
+              <!--<thead>Addons</thead>
               <tbody v-if="exhibitor != null && previousSaleNumber != exhibitor.saleNumber">
                 <tr v-if="addon.column == 2" v-for="addon in addons" :key="addon._id">
                   <td>{{ addon.name }}</td>
                   <td>${{ addon.purchaseAmount }}</td>
                   <td class="clickable" @click="deleteAddon(addon._id)">Delete</td>
                 </tr>
-              </tbody>
+              </tbody>-->
             </table>
           </div>
           <div class="button_holder">
@@ -87,8 +90,8 @@
               </tr>
               <tr>
                 <td>Purchase Amount:</td>
-                <td><input  @focus="clearCurrentPurchase" @blur="zeroCurrentPurchase" v-validate="'required|numeric'" type="number" name="purchaseAmount" v-model="purchaseAmount"></td>
-                <td><button class="submit_current_button" name="addBtn" @click="addNewBuyerTransaction">Submit & Go To Next Sale</button></td>
+                <td><input  @focus="clearCurrentPurchase" @blur="zeroCurrentPurchase" v-validate="'required|numeric'" type="number" name="purchaseAmount" v-model="purchaseAmount" tabindex=6></td>
+                <td><button class="submit_current_button" name="addBtn" @click="addNewBuyerTransaction" tabindex=7>Submit & Go To Next Sale</button></td>
               </tr>
             </table>
           </div>
@@ -115,26 +118,26 @@
           </div>
           <div class="previous_addons">
             <table class="inner_table">
-              <thead>Addons</thead>
-              <tbody v-if="previousExhibitor != null">
+              <thead>Processor</thead>
+              <!--<tbody v-if="previousExhibitor != null">
                 <tr v-if="addon.column == 1" v-for="addon in addons2" :key="addon._id">
                   <td>{{ addon.name }}</td>
                   <td>${{ addon.purchaseAmount }}</td>
-                  <td class="clickable" @click="deleteAddon(addon._id)">Delete</td>
+                  <td class="clickable" @click="deleteAddon(addon._id)" tabindex=-1>Delete</td>
                 </tr>
-              </tbody>
+              </tbody>-->
             </table>
           </div>
           <div class="previous_addons2">
             <table class="inner_table">
-              <thead>Addons</thead>
+              <!--<thead>Addons</thead>
               <tbody v-if="previousExhibitor != null">
                 <tr v-if="addon.column == 2" v-for="addon in addons2" :key="addon._id">
                   <td>{{ addon.name }}</td>
                   <td>${{ addon.purchaseAmount }}</td>
-                  <td class="clickable" @click="deleteAddon(addon._id)">Delete</td>
+                  <td class="clickable" @click="deleteAddon(addon._id)" tabindex=-1>Delete</td>
                 </tr>
-              </tbody>
+              </tbody>-->
             </table>
           </div>
           <div class="button_holder"></div>
@@ -153,11 +156,11 @@
         saleNumber: 0, // Active number to submit or add to
         previousSaleNumber: 0,
         bidderNumber: 0, // To submit new buyer
-        addonNumber: 0, // To submit new addon
-        addonPurchaseAmount: 0, // To submit with addonNumber
+        //addonNumber: 0, // To submit new addon
+        //addonPurchaseAmount: 0, // To submit with addonNumber
         purchaseAmount: 0, // To submit to current exhibitor with bidders[]
         buyerName: "",
-        addonName: "",
+        //addonName: "",
         exhibitorName: "",
         showCurrentSale: false,
         showPreviousSale: false,
@@ -170,8 +173,8 @@
         buyerNumbers: [], // Current display buyers
         previousBuyerNumbers: [], // Previous displaybuyers
         buyers: [], // Complete buyers list
-        addons: [], // Current exhibitor addons list
-        addons2: [], // Previous exhibitor addons list
+        //addons: [], // Current exhibitor addons list
+        //addons2: [], // Previous exhibitor addons list
         transactions: [], // Current exhibitor transactions list
         transactions2: [], // Previous exhibitor transactions list
         buyer: "Buyer"
@@ -217,7 +220,7 @@
         })
         .catch(() => console.log("Waiting for transaction to occur"))
 
-        this.fetchAddons()
+        //this.fetchAddons()
       },
       async fetchPreviousExhibitor() {
         // gets the previous sale number from the most recent transaction
@@ -244,7 +247,7 @@
         })
         .catch(err => { console.log(err) })
         this.fetchPreviousBuyerNumbers()
-        this.fetchPreviousAddons()
+        //this.fetchPreviousAddons()
       },
       async fetchPreviousBuyerNumbers() {
         let buyerIndex = -1
@@ -260,7 +263,7 @@
           response.data.forEach((buyer) => { this.buyers[buyer.bidderNumber] = buyer })
         })
       },
-      async fetchAddons() {
+      /*async fetchAddons() {
         this.addons = []
 
         let col = 1
@@ -291,7 +294,7 @@
             })
           }
         }
-      },
+      },*/
       async getExhibitorBySaleNum() {
         let uri = `http://${process.env.HOST_NAME}:8081/exhibitor/saleNumber/${this.saleNumber}`
         await this.axios.get(uri).then(response => {
@@ -314,7 +317,7 @@
           }
         })
       },
-      async getAddonByBidderNum() {
+      /*async getAddonByBidderNum() {
         let uri = `http://${process.env.HOST_NAME}:8081/buyer/bidderNumber/${this.addonNumber}`
         await this.axios.get(uri).then(response => {
           if (response.data == null) {
@@ -324,7 +327,7 @@
             this.addonName = response.data.name
           }
         })
-      },
+      },*/
       async displayCurrentExhibitor() {
         // sets flag to display the current sale
         this.showCurrentSale = true
@@ -385,13 +388,14 @@
             .then(response => { console.log(response) })
             .then(() => {
               this.bidders = []
-              this.addons = []
+              //this.addons = []
               this.saleNumber++
               this.fetchPreviousExhibitor()
               this.fetchData()
             })
         }
       },
+      //FIXME: addNewProcessor
       async addNewAddonTransaction() {
         if (this.addonNumber != 0 && this.buyers[this.addonNumber] != null) {
           let newTransaction = {
@@ -429,7 +433,7 @@
         // resets input field
         this.bidderNumber = "0"
       },
-      async deleteAddon(id) {
+      /*async deleteAddon(id) {
         console.log(id)
         let uri = `http://${process.env.HOST_NAME}:8081/transaction/` + id
         await this.axios.delete(uri).then((response) => {
@@ -437,7 +441,7 @@
         })
         this.fetchTransactions()
         this.fetchPreviousTransactions()
-      }, //
+      }, //*/
       deleteBidder(bidderNumber) {
         this.bidders.splice(this.bidders.indexOf(bidderNumber), 1)
       },
@@ -447,7 +451,7 @@
       zeroBidder() {
         this.bidderNumber = this.bidderNumber == '' ? 0 : this.bidderNumber
       },
-      clearAddon() {
+      /*clearAddon() {
         this.addonNumber = this.addonNumber == 0 ? '' : this.addonNumber
       },
       zeroAddon() {
@@ -458,7 +462,7 @@
       },
       zeroPurchase() {
         this.addonPurchaseAmount = this.addonPurchaseAmount == '' ? 0 : this.addonPurchaseAmount
-      },
+      },*/
       clearCurrentPurchase() {
         this.purchaseAmount = this.purchaseAmount == 0 ? '' : this.purchaseAmount
       },

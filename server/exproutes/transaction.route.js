@@ -19,12 +19,12 @@ transactionRoutes.route('/add').post(function (req, res) {
 
 // Fetch all transactions
 transactionRoutes.route('/').get(function (req, res) {
-    Transaction.find(function (err, transaction){
+    Transaction.find(function (err, transactions){
     if(err){
         console.log(err);
     }
     else {
-        res.json(transaction);
+        res.json(transactions);
     }
     })
 })
@@ -50,6 +50,21 @@ transactionRoutes.route('/:id').get((req, res) => {
       res.json(transaction);
   });
 });
+
+// Fetch single transaction by saleNumber
+transactionRoutes.route('/saleNumber/:saleNumber').get((req, res) => {
+  var saleNumber = req.params.saleNumber;
+  Transaction.findOne({'saleNumber': saleNumber}, (err, transaction) => {
+    if (err) {
+      console.log(err);
+      res.json(err)
+    }
+    else {
+      res.json(transaction)
+    }
+  })
+})
+
 
 // Update transaction
 transactionRoutes.route('/:id').put((req, res) => {

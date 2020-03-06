@@ -7,8 +7,8 @@
       </router-link>
       <button class="exhibitors__button" @click=deleteAll()>Delete All Exhibitors</button>
       <section class="importExport">
-        <button class="exhibitors__button" @click=getCsvReport()>Export All Exhibitors</button>
-        <button class="exhibitors__button" onclick="document.getElementById('file').click();">Import Exhibitors</button>
+        <button class="exhibitors__button right" @click=getCsvReport()>Export All Exhibitors</button>
+        <button class="exhibitors__button right" onclick="document.getElementById('file').click();">Import Exhibitors</button>
       </section>
       <input type="file" style="display:none;" id="file" name="file" @change="loadCSV($event)">
     </div>
