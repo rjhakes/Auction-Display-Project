@@ -14,6 +14,7 @@ var ExhibitorSchema = new Schema({
   },
   tag: {
     type: String,
+    required: true
   },
   species: {
     type: String,
@@ -35,9 +36,9 @@ var ExhibitorSchema = new Schema({
   placing: {
     type: String
   },
-  buyback: {
+  /* buyback: {
     type: Number
-  }
+  } */
 },{
     collection: 'Exhibitor'
 });

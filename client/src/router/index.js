@@ -8,11 +8,14 @@ import Manage from '@/components/Manage'
 import ManageExhibitors from '@/components/ManageExhibitors'
 import ManageBuyers from '@/components/ManageBuyers'
 import ManageTransactions from '@/components/ManageTransactions'
+import ManageProcessors from '@/components/ManageProcessors'
 import NewExhibitor from '@/components/NewExhibitor'
 import NewBuyer from '@/components/NewBuyer'
 import NewTransaction from '@/components/NewTransaction'
+import NewProcessor from '@/components/NewProcessor'
 import EditBuyer from '@/components/EditBuyer'
 import EditTransaction from '@/components/EditTransaction'
+import EditProcessor from '@/components/EditProcessor'
 import EditExhibitor from '@/components/EditExhibitor'
 import BuyerTransaction from '@/components/BuyerTransaction'
 import AddOnTransaction from '@/components/AddonTransaction'
@@ -66,6 +69,11 @@ export default new Router({
       component: Construction
     },
     {
+      path: '/processor',
+      name: 'Processor',
+      component: Construction
+    },
+    {
       path: '/manage',
       name: 'Manage',
       component: Manage
@@ -84,6 +92,11 @@ export default new Router({
       path: '/manage/transactions',
       name: 'ManageTransactions',
       component: ManageTransactions
+    },
+    {
+      path: '/manage/processors',
+      name: 'ManageProcessors',
+      component: ManageProcessors
     },
     {
       path: '/manage/exhibitors/new',
@@ -106,9 +119,19 @@ export default new Router({
       component: NewTransaction
     },
     {
+      path: '/manage/processors/new',
+      name: 'NewProcessor',
+      component: NewProcessor
+    },
+    {
       path: '/manage/transaction/edit',
       name: 'EditTransaction',
       component: EditTransaction
+    },
+    {
+      path: '/manage/processor/edit',
+      name: 'EditProcessor',
+      component: EditProcessor
     },
     {
       path: '/manage/exhibitor/edit',

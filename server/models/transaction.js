@@ -5,7 +5,8 @@ const Schema = mongoose.Schema;
 var TransactionSchema = new Schema({
   saleNumber: {
     type: Number,
-    required: true
+    required: true,
+    unique: true
   },
   bidderNumber: {
     type: String,
@@ -18,6 +19,10 @@ var TransactionSchema = new Schema({
   purchaseType: {
     type: String,
     required: true
+  },
+  processor: {
+    type: String,
+    // required: true
   }
 },{
     collection: 'Transaction'

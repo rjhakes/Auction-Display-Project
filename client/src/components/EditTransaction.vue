@@ -13,11 +13,14 @@
         <label class="errorLabel" for="purchaseAmount" >{{ errors.first('purchaseAmount') }}</label>
         <input v-validate="'required|numeric'" type=text name=purchaseAmount placeholder="Purchase Amount" v-model=purchaseAmount>
 
-        <label class="errorLabel" for="purchaseType" >{{ errors.first('purchaseType') }}</label>
-        <input v-validate="'required'" type=text name=purchaseType placeholder="Purchase Type" v-model=purchaseType>
+        <!--<label class="errorLabel" for="purchaseType" >{{ errors.first('purchaseType') }}</label>
+        <input v-validate="'required'" type=text name=purchaseType placeholder="Purchase Type" v-model=purchaseType>-->
+
+        <label class="errorLabel" for="processor" >{{ errors.first('processor') }}</label>
+        <input v-validate="''" type=text name=processor placeholder="Processor Name" v-model=processor autocomplete="on">
 
         <button class="manage__button" @click=validate>Update</button>
-        <router-link v-bind:to="{ name: 'Manage', params: { view: false } }">
+        <router-link v-bind:to="{ name: 'Manage', params: { view: false, view2: true, view3: false } }">
           <button class="manage__button">Cancel</button>
         </router-link>
       </div>
@@ -34,7 +37,8 @@ export default {
       saleNumber: '',
       bidderNumber: '',
       purchaseAmount: '',
-      purchaseType: '',
+      purchaseType: 'Buyer',
+      processor: '',
       transactions: [],
       originalSaleNumber: ''
     }
@@ -75,7 +79,8 @@ export default {
       this.originalSaleNumber = response.data.saleNumber
       this.bidderNumber = response.data.bidderNumber
       this.purchaseAmount = response.data.purchaseAmount
-      this.purchaseType = response.data.purchaseType
+      this.purchaseType = 'Buyer'
+      this.processor = response.data.processor
       })
     },
     validate () {
@@ -87,18 +92,17 @@ export default {
     async updatePost () {
       let updatedTransaction = {
         id: this.$route.params.id,
-        salenUmber: this.saleNumber,
+        saleNumber: this.saleNumber,
         bidderNumber: this.bidderNumber,
         purchaseAmount: this.purchaseAmount,
-        purchaseType: this.phone.purchaseType,
-        email: this.email,
-        logoFileName: this.logoFileName
+        purchaseType: this.purchaseType,
+        processor: this.processor
       }
       let uri = `http://${process.env.HOST_NAME}:8081/transaction/` + this.$route.params.id
       await this.axios.put(uri, updatedTransaction).then((response) => {
         console.log(response)
       })
-      this.$router.push({ name: 'Manage', params: { view: false } })
+      this.$router.push({ name: 'Manage', params: { view: false, view2: true, view3: false } })
     }
   }
 }

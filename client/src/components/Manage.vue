@@ -5,15 +5,19 @@
       <router-link v-bind:to="{ name: 'Admin' }">
         <button class="dashboard-button">Return to Dashboard</button>
       </router-link>
-      <button class="exhibitors__button" @click='view=true, view2=false'>View Exhibitors</button>
-      <button class="buyers__button" @click='view=false, view2=false'>View Buyers</button>
-      <button class="transactions__button" @click='view=false, view2=true'>View Transactions</button>
+      <button class="exhibitors__button" @click='view=true, view2=false, view3=false'>View Exhibitors</button>
+      <button class="buyers__button" @click='view=false, view2=false, view3=false'>View Buyers</button>
+      <button class="transactions__button" @click='view=false, view2=true, view3=false'>View Transactions</button>
+      <button class="transactions__button" @click='view=false, view2=false, view3=true'>View Processors</button>
     </nav>
     <template v-if="view2">
       <manageTransactions></manageTransactions>
     </template>
     <template v-else-if="view">
       <manageExhibitors></manageExhibitors>
+    </template>
+    <template v-else-if="view3">
+      <manageProcessors></manageProcessors>
     </template>
     <template v-else>
       <manageBuyers></manageBuyers>
@@ -25,6 +29,7 @@
 import ManageExhibitors from './ManageExhibitors.vue'
 import ManageBuyers from './ManageBuyers.vue'
 import ManageTransactions from './ManageTransactions.vue'
+import ManageProcessors from './ManageProcessors.vue'
 
 export default {
   name: 'Manage',
@@ -32,7 +37,8 @@ export default {
     return {
       // view: true
       view: true,  // this.$route.params.view,
-      view2: false
+      view2: false,
+      view3: false
       //btnDisalbed: true
     }
   },
@@ -44,7 +50,8 @@ export default {
   components: {
     'manageExhibitors': ManageExhibitors,
     'manageBuyers': ManageBuyers,
-    'manageTransactions': ManageTransactions
+    'manageTransactions': ManageTransactions,
+    'manageProcessors': ManageProcessors
   }
 }
 </script>

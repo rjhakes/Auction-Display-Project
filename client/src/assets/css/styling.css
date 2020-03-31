@@ -270,16 +270,16 @@ input {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr;
-  grid-template-areas: "current_exhibitor current_buyers current_addons current_addons2";
+  grid-template-areas: "current_exhibitor current_buyers current_processors current_processors2";
   grid-area: sale_view; }
 
 .current_exhibitor { grid-area: current_exhibitor; }
 
 .current_buyers { grid-area: current_buyers; }
 
-.current_addons { grid-area: current_addons; }
+.current_addons { grid-area: current_processors; }
 
-.current_addons2 { grid-area: current_addons2; }
+.current_addons2 { grid-area: current_processors2; }
 
 /* CONSTRUCTION */
 .construction {
@@ -350,6 +350,22 @@ input {
   color: #339966; }
 
 .buyers__button:focus {
+  background-color: #f1f1f1;
+  color: #339966;}
+
+.processors__button {
+  width: 200px;
+  height: 60px;
+  background-color: #339966;
+  color: #ffffff;
+  font-weight: 600;
+  margin: 3px; }
+  
+.processors__button:hover {
+  background-color: #f1f1f1;
+  color: #339966; }
+
+.processors__button:focus {
   background-color: #f1f1f1;
   color: #339966;}
 
@@ -485,7 +501,7 @@ strong {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-  grid-template-areas: "current_exhibitor current_buyers current_addons current_addons2" "current_exhibitor current_buyers current_addons current_addons2" "current_exhibitor current_buyers current_addons current_addons2" "current_exhibitor current_buyers current_addons current_addons2" "button_holder button_holder button_holder button_holder";
+  grid-template-areas: "current_exhibitor current_buyers current_processors current_processors2" "current_exhibitor current_buyers current_processors current_processors2" "current_exhibitor current_buyers current_processors current_processors2" "current_exhibitor current_buyers current_processors current_processors2" "button_holder button_holder button_holder button_holder";
   grid-area: current_sale_view;
 }
 
@@ -493,11 +509,11 @@ strong {
 
 .current_buyers { grid-area: current_buyers; }
 
-.current_addons { grid-area: current_addons; }
+.current_addons { grid-area: current_processors; }
 
 .button_holder { grid-area: button_holder; }
 
-.current_addons2 { grid-area: current_addons2; }
+.current_addons2 { grid-area: current_processors2; }
 
 .previous_sale_view {
   display: grid;

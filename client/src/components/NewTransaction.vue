@@ -2,18 +2,20 @@
   <main class="form">
     <h1>Add Transaction</h1>
       <div v-if="this.isDataReady">
-        <label v-if="duplicatetransactionumber" class="errorLabel" for="saleNumber">Error: Duplicate Sale Number. Sale Number must be unique.</label>
+        <label v-if="duplicateSaleNumber" class="errorLabel" for="saleNumber">Error: Duplicate Sale Number. Sale Number must be unique.</label>
         <label v-else class="errorLabel" for="saleNumber" >{{ errors.first('saleNumber') }}</label>
         <input v-validate="'required|numeric'" type=text name=saleNumber :placeholder="'Sale Number* (next available: ' + nextAvailableSaleNumber + ')'" v-model=saleNumber autocomplete="off">
         <label class="errorLabel" for="bidderNumber" >{{ errors.first('bidderNumber') }}</label>
         <input v-validate="'required|numeric'" type=text name=bidderNumber placeholder="BidderNumber*" v-model=bidderNumber autocomplete="off">
         <label class="errorLabel" for="purchaseAmount" >{{ errors.first('purchaseAmount') }}</label>
-        <input v-validate="'required|numeric'" v-model="purchaseAmount" :options="options" name="purchaseAmount" placeholder="Purchase Amount*">
-        <label class="errorLabel" for="purchaseType" >{{ errors.first('purchaseType') }}</label>
-        <input v-validate="'required'" type=text name=purchaseType placeholder="Purchase Type*" v-model=purchaseType autocomplete="off">
-        
+        <input v-validate="'required|numeric'" v-model="purchaseAmount" name="purchaseAmount" placeholder="Purchase Amount*">
+        <!--<label class="errorLabel" for="purchaseType" >{{ errors.first('purchaseType') }}</label>
+        <input v-validate="'required'" type=text name=purchaseType placeholder="Purchase Type*" v-model=purchaseType autocomplete="off">-->
+        <label class="errorLabel" for="processor" >{{ errors.first('processor') }}</label>
+        <input v-validate="''" type=text name=processor placeholder="Processor Name" v-model=processor autocomplete="on">
+        <div class="confirmLabelContainer"><label id="confirmLabel"></label></div>
         <button class="transactions__button" @click=validate>Add</button>
-        <router-link v-bind:to="{ name: 'Manage', params: {view: false, view2: true} }">
+        <router-link v-bind:to="{ name: 'Manage', params: {view: false, view2: true, view3: false} }">
           <button class="transactions__button">Return to Manage</button>
         </router-link>
         <p>* Indicates required field.</p>
@@ -28,10 +30,11 @@ export default {
   name: 'NewTransaction',
   data () {
     return {
-      saleNumber: null,
-      bidderNumber: null,
-      purchaseAmount: null,
-      purchaseType: null,
+      saleNumber: '',
+      bidderNumber: '',
+      purchaseAmount: '',
+      purchaseType: "Buyer",
+      processor: '',
       transactions: [],
       isDataReady: false
     }
@@ -79,7 +82,7 @@ export default {
     validate () {
       this.$validator.validateAll()
       if (!this.errors.any() && !this.duplicateSaleNumber) {
-        this.confirmAdd()
+        // this.confirmAdd()
         this.addTransaction()
         this.resetTransaction()
       }
@@ -87,9 +90,10 @@ export default {
     async addTransaction () {
       let newTransaction = {
         saleNumber: this.saleNumber,
-        bidderNumber: this.name,
+        bidderNumber: this.bidderNumber,
         purchaseAmount: this.purchaseAmount,
-        purchaseType: this.phone.purchaseType
+        purchaseType: "Buyer",
+        processor: this.processor
       }
       let uri = `http://${process.env.HOST_NAME}:8081/transaction/add`
       this.axios.post(uri, newTransaction).then((response) => {
@@ -128,7 +132,8 @@ export default {
       this.saleNumber = this.getNextAvailableSaleNumber()
       this.bidderNumber = ''
       this.purchaseAmount = ''
-      this.purchaseType = ''
+      this.purchaseType = 'Buyer'
+      this.processor = ''
     },
     addDashes()
     {

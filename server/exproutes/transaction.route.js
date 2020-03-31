@@ -76,6 +76,7 @@ transactionRoutes.route('/:id').put((req, res) => {
         transaction.bidderNumber = req.body.bidderNumber;
         transaction.purchaseAmount = req.body.purchaseAmount;
         transaction.purchaseType = req.body.purchaseType;
+        transaction.processor = req.body.processor;
         transaction.save().then( transaction => {
           res.json('Transaction updated successfully');
       })
