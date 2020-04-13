@@ -85,7 +85,11 @@ Although the web application has built-in functionality on the `Manage Data` pag
 
 ---
 ## Contributors
-Here are the awesome [contributors](https://github.com/Cahough/Auction-Display-Project/graphs/contributors) to this project.
+Richard Hakes       rjhakes@mavs.coloradomesa.edu
+Matt Frankmore      mfrankmore@mavs.coloradomesa.edu
+
+## Client
+Andrew Vidmar       andrew.vidmar18@gmail.com, mslive stockmarketing@gmail.com, 970-260-1239
 
 ## License
 Code licensed under the [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.en.html)
