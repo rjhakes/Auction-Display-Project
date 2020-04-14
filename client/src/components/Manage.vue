@@ -8,7 +8,7 @@
       <button class="exhibitors__button" @click='view=true, view2=false, view3=false'>View Exhibitors</button>
       <button class="buyers__button" @click='view=false, view2=false, view3=false'>View Buyers</button>
       <button class="transactions__button" @click='view=false, view2=true, view3=false'>View Transactions</button>
-      <button class="transactions__button" @click='view=false, view2=false, view3=true'>View Processors</button>
+      <!--<button class="transactions__button" @click='view=false, view2=false, view3=true'>View Processors</button>-->
     </nav>
     <template v-if="view2">
       <manageTransactions></manageTransactions>
@@ -16,9 +16,9 @@
     <template v-else-if="view">
       <manageExhibitors></manageExhibitors>
     </template>
-    <template v-else-if="view3">
+    <!--<template v-else-if="view3">
       <manageProcessors></manageProcessors>
-    </template>
+    </template>-->
     <template v-else>
       <manageBuyers></manageBuyers>
     </template>
@@ -29,7 +29,7 @@
 import ManageExhibitors from './ManageExhibitors.vue'
 import ManageBuyers from './ManageBuyers.vue'
 import ManageTransactions from './ManageTransactions.vue'
-import ManageProcessors from './ManageProcessors.vue'
+// import ManageProcessors from './ManageProcessors.vue'
 
 export default {
   name: 'Manage',
@@ -51,7 +51,7 @@ export default {
     'manageExhibitors': ManageExhibitors,
     'manageBuyers': ManageBuyers,
     'manageTransactions': ManageTransactions,
-    'manageProcessors': ManageProcessors
+    // 'manageProcessors': ManageProcessors
   }
 }
 </script>

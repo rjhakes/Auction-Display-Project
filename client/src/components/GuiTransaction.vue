@@ -44,6 +44,8 @@
             <table class="inner_table">
               <thead>Buyers</thead>
               <tbody>
+                <!--FIXME: doesn't display 'Unregistered Buyer' on first submission
+                            doesn't display subsequent bidders after 'Unregistered Buyer'-->
                 <tr v-if="buyers != null" v-for="b in bidders" :key="b">
                   <td>{{ buyers[b].name }}</td>
                   <td class="clickable" @click="deleteBidder(b)">Delete</td>
@@ -51,12 +53,26 @@
               </tbody>
             </table>
           </div>
-          <div class="current_processors">
+          <!--<div class="current_processors">
             <table class="inner_table">
+              FIXME: doesn't display
               <thead>Processor</thead>
               <tbody>
                 <tr v-if="pList != null" v-for="p in processors" :key="p">
                   <td>{{ pList[p].processorName }}</td>
+                  <td class="clickable" @click="deleteProcessor(p)">Delete</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>-->
+          <div class="current_addons">
+            <table class="inner_table">
+              <thead>Processors</thead>
+              <tbody v-if="exhibitor != null"> <!-- && previousSaleNumber != exhibitor.saleNumber">-->
+                <!--<tr  v-for="processor in processors" :key="processor._id"> <!--v-if="processor.column == 1"-->
+                <tr  v-for="p in processors" :key="p">
+                  <td>{{ p }}</td>
+                                                                                                                    <!--<td>{{ this.processors }}</td>-->
                   <td class="clickable" @click="deleteProcessor(p)">Delete</td>
                 </tr>
               </tbody>
@@ -98,14 +114,14 @@
           </div>
           <div class="previous_processors">
             <table class="inner_table">
+              <!--FIXME: doesn't display-->
               <thead>Processor</thead>
-              <!--<tbody v-if="previousExhibitor != null">
-                <tr v-if="addon.column == 1" v-for="addon in addons2" :key="addon._id">
-                  <td>{{ addon.name }}</td>
-                  <td>${{ addon.purchaseAmount }}</td>
-                  <td class="clickable" @click="deleteAddon(addon._id)" tabindex=-1>Delete</td>
+              <tbody v-if="previousExhibitor != null">
+                <tr v-for="processor in pList2" :key="processor._id">
+                  <td>{{ processor.processorName }}</td>
+                  <td class="clickable" @click="deleteProcessor(processor._id)" tabindex=-1>Delete</td>
                 </tr>
-              </tbody>-->
+              </tbody>
             </table>
           </div>
         </div>
@@ -127,6 +143,7 @@
         buyerName: "",
         purchaseAmount: 0, // To submit to current exhibitor with bidders[]
         processorName: "",
+        //Buyer: "",
         
         showCurrentSale: false,
         showPreviousSale: false,
@@ -153,7 +170,7 @@
 
         buyer: "Buyer"
 
-        //addonNumber: 0, // To submit new addon11
+        //addonNumber: 0, // To submit new addon
         //addonPurchaseAmount: 0, // To submit with addonNumber
         //addonName: "",
         //addons: [], // Current exhibitor addons list
@@ -161,7 +178,7 @@
       }
     },
     created: function () {
-      this.fetchData().then(() => { this.saleNumber = this.display.saleNumber })
+      this.fetchData().then(() => { this.saleNumber = this.display.saleNumber + 1 })
     },
     computed: {
       ...mapState({
@@ -228,6 +245,7 @@
         })
         .catch(err => { console.log(err) })
         this.fetchPreviousBuyerNumbers()
+        this.fetchPreviousProcessors()
         //this.fetchPreviousAddons()
       },
       async fetchPreviousBuyerNumbers() {
@@ -253,9 +271,12 @@
         this.pList = []
 
         for (let i = 0; i < this.transactions.length; i++) {
+
           this.pList.push({
             _id: this.transactions[i]._id,
-            processorName: this.buyers[this.transactions[i].processorName].processorName
+            /* name: this.buyers[this.transactions[i].bidderNumber].name,
+            purchaseAmount: this.transactions[i].purchaseAmount, */
+            processorName: this.transactions[i].processor,
           })
         }
 
@@ -276,7 +297,7 @@
           }
         }
       }, */
-      async fetchPreviousProcessorNames() {
+      async fetchPreviousProcessors() {
           /* let processorIndex = -1
           for (let i = 0; i < this.transactions2.length; i++) {
             if (this.transactions2.)
@@ -317,7 +338,7 @@
           }
         })
       },
-      async getProcessor() {
+      /*async getProcessor() {
         let uri = `http://${process.env.HOST_NAME}:8081/processor/processorName/${this.processorName}`
         await this.axios.get(uri).then(response => {
           if (response.data == null) {
@@ -327,7 +348,7 @@
             this.processorName = respone.data.name
           }
         })
-      },
+      },*/
       async getBuyerByBidderNum() {
         let uri = `http://${process.env.HOST_NAME}:8081/buyer/bidderNumber/${this.bidderNumber}`
         await this.axios.get(uri).then(response => {
@@ -430,6 +451,13 @@
           this.processors.push(this.processorName)
           console.log(this.processors)
         } */
+        /*this.pList = []
+        this.pList.push({
+          _id: this.transactions[i]._id,
+          name: this.buyers[this.transactions[i].bidderNumber].name,
+          purchaseAmount: this.transactions[i].purchaseAmount, 
+          processorName: this.processorName //this.transactions[i].processor,
+        })*/
         this.processors.push(this.processorName)
         console.log(this.processors)
         this.processorName = ''
@@ -484,7 +512,7 @@
         this.processorName = this.processorName == 0 ? '' : this.processorName
       },
       zeroProcessor() {
-        this.processorName = this.processorName == '' ? 0 : this.processorName
+        this.processorName = this.processorName == 0 ? '' : this.processorName
       },
       deleteBidder(bidderNumber) {
         this.bidders.splice(this.bidders.indexOf(bidderNumber), 1)
