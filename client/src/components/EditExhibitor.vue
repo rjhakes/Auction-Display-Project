@@ -24,7 +24,7 @@
       <!--<label class="errorLabel" for="buyback" >{{ errors.first('buyback') }}</label>-->
       <input v-validate="'numeric'" type="text" name="buyback" placeholder="Buyback" v-model=buyback>
       <button class="manage__button" @click=validate>Update</button>
-      <router-link v-bind:to="{ name: 'Manage', params: { view: true } }">
+      <router-link v-bind:to="{ name: 'Manage', params: { view: true, view2: false, view3: false } }">
         <button class="manage__button">Cancel</button>
       </router-link>
     </div>
@@ -117,7 +117,7 @@ export default {
       await this.axios.put(uri, updatedExhibitor).then((response) => {
         console.log(response)
       })
-      this.$router.push({ name: 'Manage', params: { view: true } })
+      this.$router.push({ name: 'Manage', params: { view: true, view2: false, view3: false } })
     }
   }
 }

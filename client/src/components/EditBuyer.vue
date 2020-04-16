@@ -16,7 +16,7 @@
         <!--<label class="errorLabel" for="logoFileName" >{{ errors.first('logoFileName') }}</label>-->
         <input v-validate="''" type=text name=logoFileName placeholder="Logo Filename" v-model=logoFileName>
         <button class="manage__button" @click=validate>Update</button>
-        <router-link v-bind:to="{ name: 'Manage', params: { view: false } }">
+        <router-link v-bind:to="{ name: 'Manage', params: { view: false, view2: false, view3: false } }">
           <button class="manage__button">Cancel</button>
         </router-link>
       </div>
@@ -106,7 +106,7 @@ export default {
       await this.axios.put(uri, updatedBuyer).then((response) => {
         console.log(response)
       })
-      this.$router.push({ name: 'Manage', params: { view: false } })
+      this.$router.push({ name: 'Manage', params: { view: false, view2: false, view3: false } })
     }
   }
 }

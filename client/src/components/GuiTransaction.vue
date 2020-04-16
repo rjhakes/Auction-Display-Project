@@ -20,22 +20,15 @@
               <label class="errorLabel" for="saleNumber" >{{ errors.first('bidderNumber') }}</label>
               <label class="input__name-label">Buyer Name: {{ buyerName }}</label>
               <button class="form__button--second" @click="addNewBidder" tabindex=3>Add Bidder</button>
-            </section>0
+            </section>
           </div>
           <div class="green_border">
             <section class="form__section">
               <p class="input-field__label">Processor</p>
-              <input v-validate="'required|alpha_spaces'" type="text" name="processor" placeholder="Processor" v-model=processor autocomplete="on" tabindex=4>
-              <!--<span class="warning_label" v-if="saleNumber < display.saleNumber"> &#9888;</span>
-              <input @focus="clearAddon" @blur="zeroAddon" v-validate="'required|numeric'" type="number" v-on:input="getAddonByBidderNum" name="addonNumber" v-model="addonNumber">
-              <label class="errorLabel" for="saleNumber" >{{ errors.first('addonNumber') }}</label>
-              <label class="input__name-label">Buyer Name: {{ addonName }}</label>
-              <p class="input-field__label">Amount</p>
-              <label class="errorLabel" for="addonPurchaseAmount" >{{ errors.first('addonPurchaseAmount') }}</label>
-              <input @focus="clearPurchase" @blur="zeroPurchase" v-validate="'required|numeric'" type="number" name="addonPurchaseAmount" v-model="addonPurchaseAmount">-->
-              
-              <!--FIXME: @click="addNewProcessor"--> 
-              <button class="form__button--second" name="addBtn" @click="addNewAddonTransaction" tabindex=5>Submit Processor</button>
+              <input @focus="clearProcessor" @blur="zeroProcessor" v-validate="'alpha_spaces'" type="text" v-on:input="getProcessor" name="processorName" v-model="processorName" tabindex=4>
+              <label class="errorLabel" for="saleNumber" >{{ errors.first('processorName') }}</label>
+              <label class="input__name-label">Processor Name: {{ processorName }}</label>
+              <button class="form__button--second"  @click="addNewProcessor" tabindex=5>Submit Processor</button>
             </section>
           </div>
         </div>
@@ -51,6 +44,8 @@
             <table class="inner_table">
               <thead>Buyers</thead>
               <tbody>
+                <!--FIXME: doesn't display 'Unregistered Buyer' on first submission
+                            doesn't display subsequent bidders after 'Unregistered Buyer'-->
                 <tr v-if="buyers != null" v-for="b in bidders" :key="b">
                   <td>{{ buyers[b].name }}</td>
                   <td class="clickable" @click="deleteBidder(b)">Delete</td>
@@ -60,26 +55,13 @@
           </div>
           <div class="current_addons">
             <table class="inner_table">
-              <thead>Processor</thead>
-              <!--<tbody v-if="exhibitor != null && previousSaleNumber != exhibitor.saleNumber">
-                <tr v-if="addon.column == 1" v-for="addon in addons" :key="addon._id">
-                  <td>{{ addon.name }}</td>
-                  <td>${{ addon.purchaseAmount }}</td>
-                  <td class="clickable" @click="deleteAddon(addon._id)">Delete</td>
+              <thead>Processors</thead>
+              <tbody v-if="exhibitor != null">
+                <tr  v-for="p in processors" :key="p">
+                  <td>{{ p }}</td>
+                  <td class="clickable" @click="deleteProcessor(p)">Delete</td>
                 </tr>
-              </tbody>-->
-            </table>
-          </div>
-          <div class="current_addons2">
-            <table class="inner_table">
-              <!--<thead>Addons</thead>
-              <tbody v-if="exhibitor != null && previousSaleNumber != exhibitor.saleNumber">
-                <tr v-if="addon.column == 2" v-for="addon in addons" :key="addon._id">
-                  <td>{{ addon.name }}</td>
-                  <td>${{ addon.purchaseAmount }}</td>
-                  <td class="clickable" @click="deleteAddon(addon._id)">Delete</td>
-                </tr>
-              </tbody>-->
+              </tbody>
             </table>
           </div>
           <div class="button_holder">
@@ -116,31 +98,16 @@
               </tr>
             </table>
           </div>
-          <div class="previous_addons">
+          <div class="previous_processors">
             <table class="inner_table">
-              <thead>Processor</thead>
-              <!--<tbody v-if="previousExhibitor != null">
-                <tr v-if="addon.column == 1" v-for="addon in addons2" :key="addon._id">
-                  <td>{{ addon.name }}</td>
-                  <td>${{ addon.purchaseAmount }}</td>
-                  <td class="clickable" @click="deleteAddon(addon._id)" tabindex=-1>Delete</td>
-                </tr>
-              </tbody>-->
-            </table>
-          </div>
-          <div class="previous_addons2">
-            <table class="inner_table">
-              <!--<thead>Addons</thead>
+              <thead>Processors</thead>
               <tbody v-if="previousExhibitor != null">
-                <tr v-if="addon.column == 2" v-for="addon in addons2" :key="addon._id">
-                  <td>{{ addon.name }}</td>
-                  <td>${{ addon.purchaseAmount }}</td>
-                  <td class="clickable" @click="deleteAddon(addon._id)" tabindex=-1>Delete</td>
+                <tr v-if="processor.column == 1" v-for="processor in processors2" :key="processor._id">
+                    <td>{{ processor.processorName }}</td>
                 </tr>
-              </tbody>-->
+              </tbody>
             </table>
           </div>
-          <div class="button_holder"></div>
         </div>
       </div>
     </main>
@@ -154,34 +121,49 @@
     data () {
       return {
         saleNumber: 0, // Active number to submit or add to
+        exhibitorName: "",
         previousSaleNumber: 0,
         bidderNumber: 0, // To submit new buyer
-        //addonNumber: 0, // To submit new addon
-        //addonPurchaseAmount: 0, // To submit with addonNumber
-        purchaseAmount: 0, // To submit to current exhibitor with bidders[]
         buyerName: "",
-        //addonName: "",
-        exhibitorName: "",
+        purchaseAmount: 0, // To submit to current exhibitor with bidders[]
+        processorName: "",
+        //Buyer: "",
+        
         showCurrentSale: false,
         showPreviousSale: false,
         currentSaleCheck: false,
         previousSaleCheck: false,
+
         display: [],
-        bidders: [], // To submit to current exhibitor
-        exhibitor: [], // Current display exhibitor with purchaseAmount
-        previousExhibitor: [], // For previous exhibitor display
         buyerNumbers: [], // Current display buyers
+
+        bidders: [], // To submit to current exhibitor
+        processors: [], // to submit to current exhibitor
+        processors2: [],
+        exhibitor: [], // Current display exhibitor with purchaseAmount
+
+        previousExhibitor: [], // For previous exhibitor display
         previousBuyerNumbers: [], // Previous displaybuyers
+
         buyers: [], // Complete buyers list
-        //addons: [], // Current exhibitor addons list
-        //addons2: [], // Previous exhibitor addons list
+
+        pList: [], // Current exhibitor processors list
+        pList2: [], // Previous exhibitor processors list
+        
         transactions: [], // Current exhibitor transactions list
         transactions2: [], // Previous exhibitor transactions list
+
         buyer: "Buyer"
+
+        //addonNumber: 0, // To submit new addon
+        //addonPurchaseAmount: 0, // To submit with addonNumber
+        //addonName: "",
+        //addons: [], // Current exhibitor addons list
+        //addons2: [], // Previous exhibitor addons list
       }
     },
     created: function () {
-      this.fetchData().then(() => { this.saleNumber = this.display.saleNumber })
+      this.fetchData().then(() => { this.saleNumber = this.display.saleNumber + 1 })
     },
     computed: {
       ...mapState({
@@ -195,6 +177,7 @@
         await this.fetchBuyers()
         await this.fetchDisplay()
         await this.fetchExhibitor()
+        // await this.fetchProcessors()
         this.fetchTransactions() // Then fetches addons and buyerNumbers
         this.fetchPreviousTransactions()
       },
@@ -219,7 +202,7 @@
           this.transactions = response.data
         })
         .catch(() => console.log("Waiting for transaction to occur"))
-
+        // this.fetchProcessors()
         //this.fetchAddons()
       },
       async fetchPreviousExhibitor() {
@@ -247,6 +230,7 @@
         })
         .catch(err => { console.log(err) })
         this.fetchPreviousBuyerNumbers()
+        this.fetchPreviousProcessors()
         //this.fetchPreviousAddons()
       },
       async fetchPreviousBuyerNumbers() {
@@ -263,38 +247,21 @@
           response.data.forEach((buyer) => { this.buyers[buyer.bidderNumber] = buyer })
         })
       },
-      /*async fetchAddons() {
-        this.addons = []
-
-        let col = 1
-        for (let i = 0; i < this.transactions.length; i++) {
-          if (this.transactions[i].purchaseType == "Addon") {
-            col = Math.floor(i / 11 + 1)
-            this.addons.push({
-            _id: this.transactions[i]._id,
-            name: this.buyers[this.transactions[i].bidderNumber].name,
-            purchaseAmount: this.transactions[i].purchaseAmount,
-            column: col
-            })
+      async fetchPreviousProcessors() {
+          this.processors2 = []
+          let col = 1
+          for (let i = 0; i < this.transactions2.length; i++) {
+            if (this.transactions2[i].purchaseType == "Buyer") {
+              this.processors2.push({
+                _id: this.transactions2[i]._id,
+                name: this.buyers[this.transactions2[i].bidderNumber].name,
+                purchaseAmount: this.transactions2[i].purchaseAmount,
+                processorName: this.transactions2[i].processor,
+                column: col
+              })
           }
-        }
+          }
       },
-      async fetchPreviousAddons() {
-        this.addons2 = []
-
-        let col = 1
-        for (let i = 0; i < this.transactions2.length; i++) {
-          if (this.transactions2[i].purchaseType == "Addon") {
-            col = Math.floor(i / 11 + 1)
-            this.addons2.push({
-            _id: this.transactions2[i]._id,
-            name: this.buyers[this.transactions2[i].bidderNumber].name,
-            purchaseAmount: this.transactions2[i].purchaseAmount,
-            column: col
-            })
-          }
-        }
-      },*/
       async getExhibitorBySaleNum() {
         let uri = `http://${process.env.HOST_NAME}:8081/exhibitor/saleNumber/${this.saleNumber}`
         await this.axios.get(uri).then(response => {
@@ -310,24 +277,14 @@
         let uri = `http://${process.env.HOST_NAME}:8081/buyer/bidderNumber/${this.bidderNumber}`
         await this.axios.get(uri).then(response => {
           if (response.data == null) {
-            this.buyerName = `Buyer with bidder number ${this.bidderNumber} does not exist.`
+            this.buyerName = 'Unregistered Buyer'   // `Buyer with bidder number ${this.bidderNumber} does not exist.`
+            // this.buyerName = "Unregistered Buyer"
           }
           else {
             this.buyerName = response.data.name
           }
         })
       },
-      /*async getAddonByBidderNum() {
-        let uri = `http://${process.env.HOST_NAME}:8081/buyer/bidderNumber/${this.addonNumber}`
-        await this.axios.get(uri).then(response => {
-          if (response.data == null) {
-            this.addonName = `Buyer with bidder number ${this.addonNumber} does not exist.`
-          }
-          else {
-            this.addonName = response.data.name
-          }
-        })
-      },*/
       async displayCurrentExhibitor() {
         // sets flag to display the current sale
         this.showCurrentSale = true
@@ -358,12 +315,12 @@
             saleNumber: this.display.saleNumber,
             bidderNumber: this.bidders,
             purchaseAmount: this.purchaseAmount,
-            purchaseType: "Buyer"
+            purchaseType: "Buyer",
+            processor: this.processors
           }
           let uri = `http://${process.env.HOST_NAME}:8081/transaction/add`
 
-          await this.axios.post(uri, newTransaction)
-            .then((response) => {
+          await this.axios.post(uri, newTransaction).then((response) => {
               console.log(response)
               this.purchaseAmount = 0
              })
@@ -373,7 +330,8 @@
                 err +
                 "\nsaleNumber: " + this.display.saleNumber +
                 "\nbidderNumber: " + this.bidders +
-                "\npurchaseAmount: " + this.purchaseAmount)
+                "\npurchaseAmount: " + this.purchaseAmount +
+                "\nprocessorName: " + this.processorName)
             })
 
           // sets flag to show previous sale
@@ -388,36 +346,18 @@
             .then(response => { console.log(response) })
             .then(() => {
               this.bidders = []
-              //this.addons = []
+              //this.processors2 = this.processors
+              this.processors = []
               this.saleNumber++
               this.fetchPreviousExhibitor()
               this.fetchData()
             })
         }
       },
-      //FIXME: addNewProcessor
-      async addNewAddonTransaction() {
-        if (this.addonNumber != 0 && this.buyers[this.addonNumber] != null) {
-          let newTransaction = {
-            saleNumber: this.saleNumber,
-            bidderNumber: this.addonNumber,
-            purchaseAmount: this.addonPurchaseAmount,
-            purchaseType: "Addon"
-          }
-          let uri = `http://${process.env.HOST_NAME}:8081/transaction/add`
-          await this.axios.post(uri, newTransaction)
-          .then((response) => {
-            console.log(response)
-            this.fetchTransactions()
-            this.fetchPreviousTransactions()
-          })
-          .then(() => {
-            this.addonNumber = 0
-            this.addonPurchaseAmount = 0
-          })
-        } else {
-          window.alert("Addon number cannot be null")
-        }
+      async addNewProcessor() {
+        this.processors.push(this.processorName)
+        console.log(this.processors)
+        this.processorName = ''
       },
       async addNewBidder() {
         // pushes to array if there's more than on bidder number [x]
@@ -427,21 +367,41 @@
         } else if (this.bidderNumber == 0) {
           window.alert("Bidder number cannot be 0")
         } else {
+          if (this.buyerName == 'Unregistered Buyer') {
+            let newBuyer = {
+              bidderNumber: this.bidderNumber,
+              name: this.buyerName,
+              contactName: '', // this.contactName,
+              phone: '',// this.phone.replace(/(\d{3})(\d{3})(\d{3})/, "$1-$2-$3"),
+              email: '',// this.email,
+              logoFileName: ''// this.logoFileName
+            }
+            let uri = `http://${process.env.HOST_NAME}:8081/buyer/add`
+            this.axios.post(uri, newBuyer).then((response) => {
+            console.log(response)
+            if (response.status == 200) {
+              this.$validator.errors.clear()
+              this.confirmAdd('success')
+            } else {
+              this.confirmAdd('fail')
+            }
+          })
+          }
           this.bidders.push(this.bidderNumber)
           console.log(this.bidders)
         }
         // resets input field
         this.bidderNumber = "0"
       },
-      /*async deleteAddon(id) {
-        console.log(id)
-        let uri = `http://${process.env.HOST_NAME}:8081/transaction/` + id
-        await this.axios.delete(uri).then((response) => {
-          console.log(response)
-        })
-        this.fetchTransactions()
-        this.fetchPreviousTransactions()
-      }, //*/
+      async deleteProcessor(processorName) {
+        this.processors.splice(this.processors.indexOf(processorName), 1)
+      },
+      clearProcessor() {
+        this.processorName = this.processorName == 0 ? '' : this.processorName
+      },
+      zeroProcessor() {
+        this.processorName = this.processorName == 0 ? '' : this.processorName
+      },
       deleteBidder(bidderNumber) {
         this.bidders.splice(this.bidders.indexOf(bidderNumber), 1)
       },
@@ -451,18 +411,6 @@
       zeroBidder() {
         this.bidderNumber = this.bidderNumber == '' ? 0 : this.bidderNumber
       },
-      /*clearAddon() {
-        this.addonNumber = this.addonNumber == 0 ? '' : this.addonNumber
-      },
-      zeroAddon() {
-        this.addonNumber = this.addonNumber == '' ? 0 : this.addonNumber
-      },
-      clearPurchase() {
-        this.addonPurchaseAmount = this.addonPurchaseAmount == 0 ? '' : this.addonPurchaseAmount
-      },
-      zeroPurchase() {
-        this.addonPurchaseAmount = this.addonPurchaseAmount == '' ? 0 : this.addonPurchaseAmount
-      },*/
       clearCurrentPurchase() {
         this.purchaseAmount = this.purchaseAmount == 0 ? '' : this.purchaseAmount
       },

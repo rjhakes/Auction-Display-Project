@@ -41,7 +41,10 @@ const dict = {
       //saleNumber: 'Sale Number',
       //bidderNumber: 'Bidder Number',
       purchaseAmount: 'Purchase Amount',
-      purchaseType: 'Purchase Type'
+      purchaseType: 'Purchase Type',
+      processor: 'Processor',
+      // Processor
+      processorName: 'Processor Name'
     },
     messages: {
       regex: () => 'Invalid Phone Number. Required format: 555-555-5555'

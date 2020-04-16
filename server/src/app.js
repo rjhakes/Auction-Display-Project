@@ -96,10 +96,10 @@ db.createCollection("Exhibitor", {
           bsonType: "string",
           description: "must be a string and is not required"
         },
-        buyback: {
+        /* buyback: {
           bsonType: "number",
           description: "must be a number and is not required"
-        }
+        } */
       }
     }
   }
@@ -139,6 +139,21 @@ db.createCollection("Buyer", {
     }
   }
 })
+// Create Processor Collection
+db.createCollection("Processor", {
+  validator: {
+    $jsonSchema: {
+      bsonType: "object",
+      required: ["processorName"],
+      properties: {
+        processorName: {
+          bsonType: "string",
+          description: "must be a string and is required"
+        }
+      }
+    }
+  }
+})
 // Create Transaction Collection
 db.createCollection("Transaction", {
   validator: {
@@ -160,7 +175,11 @@ db.createCollection("Transaction", {
         },
         purchaseType: {
           bsonType: "string",
-          description: "must be a string in enum {Buyer, Addon} and is required"
+          description: "Buyer"
+        },
+        processor: {
+          bsonType: "string",
+          description: "must be a string and is required"
         }
       }
     }

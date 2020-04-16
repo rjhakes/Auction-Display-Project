@@ -32,14 +32,14 @@
           </section>
         </section>
         <!-- ADDONS -->
-        <section class="addons">
+        <!--<section class="addons">
           <p class="display__second-header">Addons:</p>
           <section class="addon" v-if="(transaction.purchaseType === addon) && transactions.length" v-for="transaction in transactions" :key="transaction._id">
             <section v-if="addOn.bidderNumber == transaction.bidderNumber" v-for="addOn in addOns" :key="addOn._id">
               {{ addOn.name }} - ${{ transaction.purchaseAmount }}
             </section>
           </section>
-        </section>
+        </section>-->
       </section>
     </main>
 </template>

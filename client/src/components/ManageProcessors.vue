@@ -1,37 +1,29 @@
 <template>
-  <div id="manageTransactions">
+  <div id="manageProcessors">
     <div id="control">
-      <h1>Transactions</h1>
-      <router-link v-bind:to="{ name: 'NewTransaction' }">
-        <button class="transactions__button">Add New Transaction</button>
+      <h1>Processors</h1>
+      <router-link v-bind:to="{ name: 'NewProcessor' }">
+        <button class="buyers__button">Add New Processor</button>
       </router-link>
-      <button class="transactions__button" @click=deleteAll()>Delete All Transactions</button>
+      <button class="buyers__button" @click=deleteAll()>Delete All Processors</button>
       <section class="importExport">
-        <button class="transactions__button right" @click=getCsvReport()>Export All Transactions</button>
-        <button class="transactions__button right" onclick="document.getElementById('file').click();">Import Transactions</button>
+        <button class="buyers__button right" @click=getCsvReport()>Export All Processors</button>
+        <button class="buyers__button right" onclick="document.getElementById('file').click();">Import Processors</button>
       </section>
       <input type="file" style="display:none;" id="file" name="file" @change="loadCSV($event)">
     </div>
     <table class="manage__table">
       <thead>
         <tr>
-          <td @click="sort('saleNumber')" class="clickable"><strong>Sale Number</strong></td>
-          <td @click="sort('bidderNumber')" class="clickable"><strong>bidderNumber</strong></td>
-          <td @click="sort('purchaseAmount')" class="clickable"><strong>Purchase Amount</strong></td>
-          <!--<td @click="sort('purchaseType')" class="clickable"><strong>Purchase Type</strong></td>-->
-          <td @click="sort('processor')" class="clickable"><strong>Processor</strong></td>
+          <td @click="sort('processorName')" class="clickable"><strong>Processor Name</strong></td>
           <td><strong>Action</strong></td>
         </tr>
       </thead>
       <tbody>
-        <tr class="table__rows" v-for="transaction in sortedTransactions" :key="transaction.saleNumber">
-          <td>{{ transaction.saleNumber }}</td>
-          <td>{{ transaction.bidderNumber }}</td>
-          <td>{{ transaction.purchaseAmount }}</td>
-          <!--<td>{{ transaction.purchaseType }}</td>-->
-          <td>{{ transaction.processor }}</td>
-          <router-link class="clickable" v-bind:to="{ name: 'EditTransaction', params: { id: transaction._id } }"><strong>Edit</strong></router-link> |
-          <a class="clickable" id="deleteBtn" @click="deleteTransaction(transaction._id)"><strong>Delete</strong></a>
+        <tr class="table__rows" v-for="processor in sortedProcessors" :key="processor.processorName">
+          <td>{{ processor.processorName }}</td>
+          <router-link class="clickable" v-bind:to="{ name: 'EditProcessor', params: { id: processor._id } }"><strong>Edit</strong></router-link> |
+          <a class="clickable" id="deleteBtn" @click="deleteProcessor(processor._id)"><strong>Delete</strong></a>
         </tr>
       </tbody>
     </table>
@@ -43,10 +35,10 @@
 
 <script>
   export default {
-    name: 'Transaction',
+    name: 'Processor',
     data() {
       return {
-        transactions: [],
+        processors: [],
         index: 0,
         channel_name: '',
         channel_fields: [],
@@ -55,24 +47,20 @@
         parse_csv: [],
         sortOrders: {},
         sortKey: '',
-        saleNumber: null,
-        bidderNumber: null,
-        purchaseAmount: null,
-        purchaseType: null,
-        processor: null,
-        currentSort: 'saleNumber',
+        processorName: null,
+        currentSort: 'name',
         currentSortDir: 'asc'
       }
     },
 
     created: function() {
-      this.fetchTransactions()
-      this.sort('saleNumber')
+      this.fetchProcessors()
+      this.sort('processorName')
     },
 
     computed: {
-      sortedTransactions: function() {
-        return this.transactions.slice().sort((a, b) => {
+      sortedProcessors: function() {
+        return this.processors.slice().sort((a, b) => {
         let modifier = 1
         if (this.currentSortDir === 'desc') modifier = -1
         if (a[this.currentSort] < b[this.currentSort]) return -1 * modifier
@@ -83,44 +71,41 @@
     },
 
     methods: {
-      fetchTransactions() {
-        let uri = `http://${process.env.HOST_NAME}:8081/transaction`
+      fetchProcessors() {
+        let uri = `http://${process.env.HOST_NAME}:8081/processor`
         this.axios.get(uri).then(response => {
-          this.transactions = response.data
+          this.processors = response.data
         })
       },
-      async deleteTransaction (id) {
-        let uri = `http://${process.env.HOST_NAME}:8081/transaction/` + id
+      async deleteProcessor (id) {
+        let uri = `http://${process.env.HOST_NAME}:8081/processor/` + id
         await this.axios.delete(uri).then((response) => {
           console.log(response)
         })
-        this.fetchTransactions()
+        this.fetchProcessors()
         this.$router.push({ name: 'Manage' })
     },
     async deleteAll() {
-      let uri = `http://${process.env.HOST_NAME}:8081/transaction/`
-      var delCheck = confirm("Are you sure you want to delete ALL Transactions?")
+      let uri = `http://${process.env.HOST_NAME}:8081/processor/`
+      var delCheck = confirm("Are you sure you want to delete ALL PROCESSORS?")
       if (delCheck) {
-        for (var i = 0; i < this.transactions.length; i++) {
-          uri = `http://${process.env.HOST_NAME}:8081/transaction/` + this.transactions[i]._id
+        for (var i = 0; i < this.processors.length; i++) {
+          uri = `http://${process.env.HOST_NAME}:8081/processor/` + this.processors[i]._id
 					this.axios.delete(uri).then((response) => {
 						console.log(response)
 					})
 				}
-				this.transactions = []
+				this.processors = []
 	      this.$router.push({ name: 'Manage' })
       }
     },
     async getCsvReport() {
-      const jsonUrl = `http://${process.env.HOST_NAME}:8081/transaction/`
+      const jsonUrl = `http://${process.env.HOST_NAME}:8081/processor/`
       const res = await fetch(jsonUrl)
       const json = await res.json()
 
       const data = json.map(row => ({
-        saleNumber: row.saleNumber,
-        bidderNumber: row.bidderNumber,
-        purchaseAmount: row.purchaseAmount,
-        purchaseType: row.purchaseType
+        processorName: row.processorName
       }))
       const csvData = this.objectToCsv(data)
       this.download(csvData)
@@ -147,7 +132,7 @@
       const a = document.createElement('a')
       a.setAttribute('hidden', '')
       a.setAttribute('href', url)
-      a.setAttribute('download', 'transactionData.csv')
+      a.setAttribute('download', 'buyerData.csv')
       document.body.appendChild(a)
       a.click()
       document.body.removeChild(a)
@@ -171,20 +156,18 @@
         if (indexLine < 1) return // Jump header line
 
         var obj = {}
-        var currentline = line.split(",")
+        var currentline = line.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/)
 
         headers.map(function(header, indexHeader) {
           obj[header] = currentline[indexHeader].replace(/"/g, '').replace(null, '')
         })
 
-        vm.addTransaction(obj)
+        vm.addProcessor(obj)
         result.push(obj)
       })
       result.pop() // remove the last item because undefined values
       return result // JavaScript object
     },
-
-    //FIXME: ERROR CATCH IS WRITTEN, BUT NOT CATCHING?
     loadCSV(e) {
       var vm = this
       if (window.FileReader) {
@@ -204,19 +187,16 @@
         alert('FileReader are not supported in this browser.')
       }
     },
-    async addTransaction (obj) {
-      let newTransaction = {
-        saleNumber: obj.saleNumber,
-        bidderNumber: obj.bidderNumber,
-        purchaseAmount: obj.purchaseAmount,
-        purchaseType: obj.purchaseType
+    async addProcessor (obj) {
+      let newProcessor = {
+        processorName: obj.processorName,
       }
-      let uri = `http://${process.env.HOST_NAME}:8081/transaction/add`
-      await this.axios.post(uri, newTransaction).then((response) => {
+      let uri = `http://${process.env.HOST_NAME}:8081/processor/add`
+      await this.axios.post(uri, newProcessor).then((response) => {
         console.log(response)
       })
-      this.fetchTransactions()
-      this.$router.push({ name: 'Manage' })
+      this.fetchProcessors()
+      // this.$router.push({ name: 'Manage' })
     },
     sort: function(s) {
       // if s == current sort, reverse
