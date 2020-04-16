@@ -6,7 +6,7 @@
         <label v-else class="errorLabel" for="saleNumber" >{{ errors.first('saleNumber') }}</label>
         <input v-validate="'required|numeric'" type=text name=saleNumber :placeholder="'Sale Number* (next available: ' + nextAvailableSaleNumber + ')'" v-model=saleNumber autocomplete="off">
         <label class="errorLabel" for="bidderNumber" >{{ errors.first('bidderNumber') }}</label>
-        <input v-validate="'required|numeric'" type=text name=bidderNumber placeholder="BidderNumber*" v-model=bidderNumber autocomplete="off">
+        <input v-validate="'required'" type=text name=bidderNumber placeholder="BidderNumber*" v-model=bidderNumber autocomplete="off">
         <label class="errorLabel" for="purchaseAmount" >{{ errors.first('purchaseAmount') }}</label>
         <input v-validate="'required|numeric'" v-model="purchaseAmount" name="purchaseAmount" placeholder="Purchase Amount*">
         <!--<label class="errorLabel" for="purchaseType" >{{ errors.first('purchaseType') }}</label>

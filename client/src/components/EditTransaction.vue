@@ -8,7 +8,7 @@
         <input v-validate="'required|numeric'" type=text name=saleNumber placeholder="Sale Number" v-model=saleNumber>
 
         <label class="errorLabel" for="bidderNumber" >{{ errors.first('bidderNumber') }}</label>
-        <input v-validate="'required|numeric'" type=text name=bidderNumber placeholder="BidderNumber" v-model=bidderNumber>
+        <input v-validate="'required'" type=text name=bidderNumber placeholder="BidderNumber" v-model=bidderNumber>
 
         <label class="errorLabel" for="purchaseAmount" >{{ errors.first('purchaseAmount') }}</label>
         <input v-validate="'required|numeric'" type=text name=purchaseAmount placeholder="Purchase Amount" v-model=purchaseAmount>
