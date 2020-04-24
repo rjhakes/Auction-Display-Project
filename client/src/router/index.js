@@ -21,6 +21,7 @@ import BuyerTransaction from '@/components/BuyerTransaction'
 import AddOnTransaction from '@/components/AddonTransaction'
 import ExhibitorHistory from '@/components/ExhibitorHistory'
 import GuiTransaction from '@/components/GuiTransaction'
+import AddonDisplay from '@components/AddonDisplay'
 
 Vue.use(Router)
 
