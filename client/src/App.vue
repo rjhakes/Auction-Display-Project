@@ -21,7 +21,7 @@ export default {
 
   mounted() {
     if (!this.$store.state.isAuthenticated) {
-      this.$router.replace({ name: 'Login' })
+      this.$router.replace({ name: 'Admin' })
     }
   },
 

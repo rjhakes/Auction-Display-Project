@@ -147,6 +147,11 @@ export default new Router({
       path: '/transaction/addon',
       name: 'AddOnTransaction',
       component: AddOnTransaction
+    },
+    {
+      path: '/addondisplay',
+      name: 'AddonDisplay',
+      component: AddonDisplay
     }
   ]
 })
