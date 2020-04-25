@@ -41,4 +41,13 @@
     color: #339966;
     text-align: center;
     text-transform: uppercase; }
+
+.addon_display_table {
+    text-align: left;
+    margin: 50px 10px;
+    padding: 10px 15px;
+    height: 90%
+    width: 95%  }
+
+    
 </css>
