@@ -11,7 +11,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr class="addon_table_rows">
+                <tr v-if="buyers != null" v-for="b in buyers" :key="b">
                     <td>{{buyers[b].name }}</td>
                 </tr>
             </tbody>
@@ -31,10 +31,14 @@
         },
         created: function() {
             setInterval(() => this.addonDisplaySpeed)
-            this.fetchSaleNumber()
         }
     }
 </script>
 
 <css>
+.addon_display_header {
+    font-size: 45px;
+    color: #339966;
+    text-align: center;
+    text-transform: uppercase; }
 </css>
