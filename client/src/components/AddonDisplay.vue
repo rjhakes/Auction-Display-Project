@@ -49,5 +49,11 @@
     height: 90%
     width: 95%  }
 
-    
+.table_c1,
+.table_c2,
+.table_c3 {
+    width: 30%;
+    color: #339966;
+    font-size: 25px; }
+
 </css>
