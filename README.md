@@ -87,7 +87,8 @@ Although the web application has built-in functionality on the `Manage Data` pag
 ## Contributors
 Richard Hakes       rjhakes@mavs.coloradomesa.edu
 
-Matt Frankmore      mfrankmore@mavs.coloradomesa.edu
+Matt Frankmore      mfrankmore@mavs.coloradomesa.edu  
+[Contributions](https://github.com/rjhakes/Auction-Display-Project/graphs/contributors?from=2020-02-02&to=2020-05-10&type=c)
 
 ## Client
 Andrew Vidmar       andrew.vidmar18@gmail.com, mslivestockmarketing@gmail.com, 970-260-1239
