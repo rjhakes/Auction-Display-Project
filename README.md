@@ -94,7 +94,7 @@ Andrew Vidmar       andrew.vidmar18@gmail.com, mslivestockmarketing@gmail.com, 9
 
 ## Presentation Info
 [Showcase Presentation](https://coloradomesa.zoom.us/rec/share/15Nnf5Xp0m9OXq-W-UTgeaI_DJWiaaa8hCAc__QLmUgwCq_AfgllxyZ-fvrBm7xE)  
-[Addendum Presentation]()
+[Addendum Presentation]()  
 There were no slides for our presentations.
 
 ## License
