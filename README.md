@@ -92,5 +92,10 @@ Matt Frankmore      mfrankmore@mavs.coloradomesa.edu
 ## Client
 Andrew Vidmar       andrew.vidmar18@gmail.com, mslivestockmarketing@gmail.com, 970-260-1239
 
+## Presentation Info
+[Showcase Presentation](https://coloradomesa.zoom.us/rec/share/15Nnf5Xp0m9OXq-W-UTgeaI_DJWiaaa8hCAc__QLmUgwCq_AfgllxyZ-fvrBm7xE)  
+[Addendum Presentation]()
+There were no slides for our presentations.
+
 ## License
 Code licensed under the [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.en.html)
