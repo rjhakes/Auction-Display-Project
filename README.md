@@ -87,10 +87,16 @@ Although the web application has built-in functionality on the `Manage Data` pag
 ## Contributors
 Richard Hakes       rjhakes@mavs.coloradomesa.edu
 
-Matt Frankmore      mfrankmore@mavs.coloradomesa.edu
+Matt Frankmore      mfrankmore@mavs.coloradomesa.edu  
+[Contributions](https://github.com/rjhakes/Auction-Display-Project/graphs/contributors?from=2020-02-02&to=2020-05-10&type=c)
 
 ## Client
 Andrew Vidmar       andrew.vidmar18@gmail.com, mslivestockmarketing@gmail.com, 970-260-1239
+
+## Presentation Info
+[Showcase Presentation](https://coloradomesa.zoom.us/rec/share/15Nnf5Xp0m9OXq-W-UTgeaI_DJWiaaa8hCAc__QLmUgwCq_AfgllxyZ-fvrBm7xE)  
+[Addendum Presentation](https://coloradomesa.zoom.us/rec/share/98NsCI_W7mxIc7eQuX_PZa04P7a8T6a8gHQW_PFczx0EcWD4SUfys11IeHqQ9Igf)  
+There were no slides for our presentations.
 
 ## License
 Code licensed under the [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.en.html)
