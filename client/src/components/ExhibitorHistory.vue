@@ -5,10 +5,10 @@
       <table class ="exhibitor_history_table">
         <thead>
           <tr>
-            <th class="table_c1">Sale #</th>
-            <th class="table_c2">Exhibitor Name</th>
-            <th class="table_c3">Buyers</th>
-            <th class="table_c3">Purchase Amount</th>
+            <th class="table_c4">Sale #</th>
+            <th class="table_c4">Exhibitor Name</th>
+            <th class="table_c4">Buyers</th>
+            <th class="table_c4">Purchase Amount</th>
             <th class="table_c4">Processors</th>
             <!--<th class="table_c4">Addons</th>-->
           </tr>
@@ -44,7 +44,7 @@
             <td>
               <table>
                 <tbody>
-                  <tr class="addons_rows" v-if="transactions[0] != null" v-for="t in transactions" :key="t._id">
+                  <tr class="processor_rows" v-if="transactions[0] != null" v-for="t in transactions" :key="t._id">
                     <td>{{t.processor}}</td>
                   </tr>
                 </tbody>
@@ -60,10 +60,10 @@
       <table class ="exhibitor_history_table">
         <thead>
           <tr>
-            <th class="table_c1">Sale #</th>
-            <th class="table_c2">Exhibitor Name</th>
-            <th class="table_c3">Buyers</th>
-            <th class="table_c3">Purchase Amount</th>
+            <th class="table_c4">Sale #</th>
+            <th class="table_c4">Exhibitor Name</th>
+            <th class="table_c4">Buyers</th>
+            <th class="table_c4">Purchase Amount</th>
             <th class="table_c4">Processors</th>
             <!--<th class="table_c4">Addons</th>-->
           </tr>
@@ -99,7 +99,7 @@
             <td>
               <table>
                 <tbody>
-                  <tr class="addons_rows" v-if="transactions2[0] != null" v-for="t in transactions2" :key="t._id">
+                  <tr class="processor_rows" v-if="transactions2[0] != null" v-for="t in transactions2" :key="t._id">
                     <td>{{t.processor}}</td>
                   </tr>
                 </tbody>
@@ -117,10 +117,10 @@
       <table class ="exhibitor_history_table">
         <thead>
           <tr>
-            <th class="table_c1">Sale #</th>
-            <th class="table_c2">Exhibitor Name</th>
-            <th class="table_c3">Buyers</th>
-            <th class="table_c3">Purchase Amount</th>
+            <th class="table_c4">Sale #</th>
+            <th class="table_c4">Exhibitor Name</th>
+            <th class="table_c4">Buyers</th>
+            <th class="table_c4">Purchase Amount</th>
             <th class="table_c4">Processors</th>
             <!--<th class="table_c4">Addons</th>-->
           </tr>
@@ -156,7 +156,7 @@
             <td>
               <table>
                 <tbody>
-                  <tr class="addons_rows" v-if="transactions3[0] != null" v-for="t in transactions3" :key="t._id">
+                  <tr class="processor_rows" v-if="transactions3[0] != null" v-for="t in transactions3" :key="t._id">
                     <td>{{t.processor}}</td>
                   </tr>
                 </tbody>
@@ -360,21 +360,36 @@
 .table_c2,
 .table_c3,
 .table_c4 {
+  text-align: left;
+  margin: 50px 10px;
+  padding: 10px 15px;
   width: 25%;
   color: #339966;
   font-size: 25px; }
 
 .exhibitor_table_rows {
+  text-align: left;
+  margin: 50px 10px;
+  padding: 10px 15px;
   font-size: 40px;  }
 
 .buyer_rows {
+  margin: 50px 10px;
+  padding: 10px 15px;
+  text-align: left;
   font-size: 30px;  }
 
 .purchaseAmount_rows {
+  text-align: left;
+  margin: 50px 10px;
+  padding: 10px 15px;
   color: #339966;
   font-size: 35px;  }
 
-.addon_rows {
+.processor_rows {
+  text-align: left;
+  margin: 50px 10px;
+  padding: 10px 15px;
   font-size: 20px;  }
 
 </css>

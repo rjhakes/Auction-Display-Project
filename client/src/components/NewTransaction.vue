@@ -9,8 +9,6 @@
         <input v-validate="'required'" type=text name=bidderNumber placeholder="BidderNumber*" v-model=bidderNumber autocomplete="off">
         <label class="errorLabel" for="purchaseAmount" >{{ errors.first('purchaseAmount') }}</label>
         <input v-validate="'required|numeric'" v-model="purchaseAmount" name="purchaseAmount" placeholder="Purchase Amount*">
-        <!--<label class="errorLabel" for="purchaseType" >{{ errors.first('purchaseType') }}</label>
-        <input v-validate="'required'" type=text name=purchaseType placeholder="Purchase Type*" v-model=purchaseType autocomplete="off">-->
         <label class="errorLabel" for="processor" >{{ errors.first('processor') }}</label>
         <input v-validate="''" type=text name=processor placeholder="Processor Name" v-model=processor autocomplete="on">
         <div class="confirmLabelContainer"><label id="confirmLabel"></label></div>

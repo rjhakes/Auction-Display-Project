@@ -1,3 +1,5 @@
+<!--COMPONENT NOT USED; REMOVE FILE AND MENTION OF IT FROM OTHER FILES-->
+
 <template>
   <div class="form">
     <h1>Edit Buyer: {{ name }}</h1>

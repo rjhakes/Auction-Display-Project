@@ -18,7 +18,6 @@
           <td @click="sort('saleNumber')" class="clickable"><strong>Sale Number</strong></td>
           <td @click="sort('bidderNumber')" class="clickable"><strong>bidderNumber</strong></td>
           <td @click="sort('purchaseAmount')" class="clickable"><strong>Purchase Amount</strong></td>
-          <!--<td @click="sort('purchaseType')" class="clickable"><strong>Purchase Type</strong></td>-->
           <td @click="sort('processor')" class="clickable"><strong>Processor</strong></td>
           <td><strong>Action</strong></td>
         </tr>
@@ -28,7 +27,6 @@
           <td>{{ transaction.saleNumber }}</td>
           <td>{{ transaction.bidderNumber }}</td>
           <td>{{ transaction.purchaseAmount }}</td>
-          <!--<td>{{ transaction.purchaseType }}</td>-->
           <td>{{ transaction.processor }}</td>
           <router-link class="clickable" v-bind:to="{ name: 'EditTransaction', params: { id: transaction._id } }"><strong>Edit</strong></router-link> |
           <a class="clickable" id="deleteBtn" @click="deleteTransaction(transaction._id)"><strong>Delete</strong></a>

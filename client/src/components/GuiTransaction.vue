@@ -127,7 +127,6 @@
         buyerName: "",
         purchaseAmount: 0, // To submit to current exhibitor with bidders[]
         processorName: "",
-        //Buyer: "",
         
         showCurrentSale: false,
         showPreviousSale: false,
@@ -154,12 +153,6 @@
         transactions2: [], // Previous exhibitor transactions list
 
         buyer: "Buyer"
-
-        //addonNumber: 0, // To submit new addon
-        //addonPurchaseAmount: 0, // To submit with addonNumber
-        //addonName: "",
-        //addons: [], // Current exhibitor addons list
-        //addons2: [], // Previous exhibitor addons list
       }
     },
     created: function () {
@@ -177,7 +170,6 @@
         await this.fetchBuyers()
         await this.fetchDisplay()
         await this.fetchExhibitor()
-        // await this.fetchProcessors()
         this.fetchTransactions() // Then fetches addons and buyerNumbers
         this.fetchPreviousTransactions()
       },
@@ -202,8 +194,6 @@
           this.transactions = response.data
         })
         .catch(() => console.log("Waiting for transaction to occur"))
-        // this.fetchProcessors()
-        //this.fetchAddons()
       },
       async fetchPreviousExhibitor() {
         // gets the previous sale number from the most recent transaction
@@ -231,7 +221,6 @@
         .catch(err => { console.log(err) })
         this.fetchPreviousBuyerNumbers()
         this.fetchPreviousProcessors()
-        //this.fetchPreviousAddons()
       },
       async fetchPreviousBuyerNumbers() {
         let buyerIndex = -1
@@ -277,8 +266,7 @@
         let uri = `http://${process.env.HOST_NAME}:8081/buyer/bidderNumber/${this.bidderNumber}`
         await this.axios.get(uri).then(response => {
           if (response.data == null) {
-            this.buyerName = 'Unregistered Buyer'   // `Buyer with bidder number ${this.bidderNumber} does not exist.`
-            // this.buyerName = "Unregistered Buyer"
+            this.buyerName = 'Unregistered Buyer'   
           }
           else {
             this.buyerName = response.data.name
@@ -371,10 +359,10 @@
             let newBuyer = {
               bidderNumber: this.bidderNumber,
               name: this.buyerName,
-              contactName: '', // this.contactName,
-              phone: '',// this.phone.replace(/(\d{3})(\d{3})(\d{3})/, "$1-$2-$3"),
-              email: '',// this.email,
-              logoFileName: ''// this.logoFileName
+              contactName: '', 
+              phone: '',
+              email: '',
+              logoFileName: ''
             }
             let uri = `http://${process.env.HOST_NAME}:8081/buyer/add`
             this.axios.post(uri, newBuyer).then((response) => {

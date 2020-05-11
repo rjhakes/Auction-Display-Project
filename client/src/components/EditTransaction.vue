@@ -13,9 +13,6 @@
         <label class="errorLabel" for="purchaseAmount" >{{ errors.first('purchaseAmount') }}</label>
         <input v-validate="'required|numeric'" type=text name=purchaseAmount placeholder="Purchase Amount" v-model=purchaseAmount>
 
-        <!--<label class="errorLabel" for="purchaseType" >{{ errors.first('purchaseType') }}</label>
-        <input v-validate="'required'" type=text name=purchaseType placeholder="Purchase Type" v-model=purchaseType>-->
-
         <label class="errorLabel" for="processor" >{{ errors.first('processor') }}</label>
         <input v-validate="''" type=text name=processor placeholder="Processor Name" v-model=processor autocomplete="on">
 

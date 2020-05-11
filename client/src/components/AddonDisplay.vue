@@ -46,7 +46,7 @@
     text-align: left;
     margin: 50px 10px;
     padding: 10px 15px;
-    height: 90%
+    height: 90%;
     width: 95%  }
 
 .table_c1,

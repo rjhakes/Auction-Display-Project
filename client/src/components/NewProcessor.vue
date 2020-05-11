@@ -1,3 +1,5 @@
+<!--COMPONENT NOT USED; REMOVE FILE AND MENTION OF IT FROM OTHER FILES-->
+
 <template>
   <main class="form">
     <h1>Add Processor</h1>
