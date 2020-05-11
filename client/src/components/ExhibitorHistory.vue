@@ -390,6 +390,6 @@
   text-align: left;
   margin: 50px 10px;
   padding: 10px 15px;
-  font-size: 20px;  }
+  font-size: 30px;  }
 
 </css>
