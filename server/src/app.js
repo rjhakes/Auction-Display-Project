@@ -58,7 +58,7 @@ db.createCollection("Exhibitor", {
   validator: {
     $jsonSchema: {
       bsonType: "object",
-      required: ["saleNumber", "fullName", "tag", "species"],
+      required: ["saleNumber", "fullName", "species"], // "tag", "species"],
       properties: {
         saleNumber: {
           bsonType: "number",
@@ -70,7 +70,7 @@ db.createCollection("Exhibitor", {
         },
         tag: {
           bsonType: "string",
-          description: "must be a string and is required"
+          description: "must be a string and is not required"
         },
         species: {
           bsonType: "string",

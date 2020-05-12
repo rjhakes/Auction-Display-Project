@@ -6,7 +6,7 @@ const Exhibitor = require('../models/exhibitor.js')
 // Add an exhibitor
 exhibitorRoutes.route('/add').post(function (req, res) {
     var exhibitor = new Exhibitor(req.body)
-    if (exhibitor.saleNumber && exhibitor.fullName && exhibitor.species && exhibitor.checkInWeight && exhibitor.tag) {
+    if (exhibitor.saleNumber && exhibitor.fullName && exhibitor.species && exhibitor.checkInWeight) { //  && exhibitor.tag) {
         exhibitor.save()
         .then(exhibitor => {
         res.status(200).json({'exhibitor': 'exhibitor added successfully'})

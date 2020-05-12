@@ -7,8 +7,8 @@
       <input v-validate="'required|numeric'" type="text" name="saleNumber" placeholder="Sale Number" v-model="saleNumber">
       <label class="errorLabel" for="fullName" >{{ errors.first('fullName') }}</label> 
       <input v-validate="'required|alpha_spaces'" type="text" name="fullName" placeholder="Full Name" v-model=fullName>
-      <label class="errorLabel" for="tag" >{{ errors.first('tag') }}</label>
-      <input v-validate="'required'" type="text" name="tag" placeholder="Tag" v-model="tag">
+      <!--<label class="errorLabel" for="tag" >{{ errors.first('tag') }}</label>-->
+      <input v-validate="''" type="text" name="tag" placeholder="Tag" v-model="tag">
       <label class="errorLabel" for="species" >{{ errors.first('species') }}</label>
       <input v-validate="'required|alpha_spaces'" type="text" name="species" placeholder="Species" v-model="species">
       <label class="errorLabel" for="checkInWeight" >{{ errors.first('checkInWeight') }}</label>

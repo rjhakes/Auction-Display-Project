@@ -14,7 +14,7 @@ var ExhibitorSchema = new Schema({
   },
   tag: {
     type: String,
-    required: true
+    // required: true
   },
   species: {
     type: String,
