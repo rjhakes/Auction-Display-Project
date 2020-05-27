@@ -101,7 +101,7 @@
           <div class="previous_processors">
             <table class="inner_table">
               <thead>Processors</thead>
-              <td v-for="t in transactions2" :key="t._id">{{t.processor}}</td>
+              <td v-if="transactions2 != null" v-for="t in transactions2" :key="t._id">{{t.processor}}</td>
             </table>
           </div>
         </div>
