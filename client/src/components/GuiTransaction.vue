@@ -53,7 +53,7 @@
               </tbody>
             </table>
           </div>
-          <div class="current_addons">
+          <div class="current_processors">
             <table class="inner_table">
               <thead>Processors</thead>
               <tbody v-if="exhibitor != null">
