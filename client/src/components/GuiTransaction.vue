@@ -102,17 +102,6 @@
             <table class="inner_table">
               <thead>Processors</thead>
               <td v-for="t in transactions2" :key="t._id">{{t.processor}}</td>
-              
-               <!--<tbody v-if="previousExhibitor != null">
-                <tr  v-for="p in processors2" :key="p">
-                  <td>{{ p }}</td>
-                </tr>
-              </tbody>-->
-              <!--<tbody v-if="previousExhibitor != null">
-                <tr v-if="processor.column == 1" v-for="processor in processors2" :key="processor._id">
-                    <td>{{ processor.processorName }}</td>
-                </tr>
-              </tbody>-->
             </table>
           </div>
         </div>
